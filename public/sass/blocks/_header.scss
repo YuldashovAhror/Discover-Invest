@@ -1,0 +1,376 @@
+//begin header
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    padding-top: 2rem;
+    transition: .3s all;
+    &__container {
+        @include flexBetween();
+        padding-bottom: 1.8rem;
+    }
+    .line {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+    &__nav {
+        @include flexStart();
+        .discover {
+            display: block;
+            margin-right: 4.6rem;
+            width: 8rem;
+            svg {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                path {
+                    transition: .3s all;
+                }
+            }
+        }
+        .list {
+            @include flexStart();
+            li {
+                margin-right: 2.5rem;
+                position: relative;
+                padding-left: 1.5rem;
+                &:before {
+                    position: absolute;
+                    content: '';
+                    width: .45rem;
+                    height: .45rem;
+                    left: 0;
+                    top: 50%;
+                    background-color: var(--main-color-yellow);
+                    transition: 0.2s ease-in-out;
+                    transform: rotate(45deg) translateY(-50%) scale(0);
+                }
+                &.active {
+                    &:before {
+                        transform: rotate(45deg) translateY(-50%) scale(1);
+                    }
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+                a {
+                    font-family: "Corbel-R";
+                    font-size: .9rem;
+                    line-height: 110%;
+                    color: var(--main-color-white);
+                    transition: .3s all;
+                    position: relative;
+                }
+                &:hover {
+                    &:before {
+                        transform: rotate(45deg) translateY(-50%) scale(1);
+                    }
+                    a {
+                        color: var(--main-color-white);
+                    }
+                }
+            }
+        }
+    }
+    &__right {
+        @include flexEnd();
+        .messengers {
+            @include flexEnd();
+            margin-right: 3.7rem;
+            &__link {
+                display: block;
+                width: 1.5rem;
+                margin-right: .5rem;
+                &:last-child {
+                    margin-right: 0;
+                }
+                svg {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    path {
+                        transition: .3s all;
+                    }
+                }
+                &:hover {
+                    transform: scale(1.1);
+                    svg {
+                        path {
+                            fill: var(--main-color-yellow);
+                        }
+                    }
+                }
+            }
+        }
+        .languages {
+            margin-right: 3.8rem;
+            cursor: pointer;
+            &__box {
+                @include flexStart();
+                span {
+                    font-size: .8rem;
+                    color: var(--main-color-white);
+                    display: inline-block;
+                    margin-right: .8rem;
+                    text-transform: uppercase;
+                }
+                svg {
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        .calls {
+            @include flexEnd();
+            svg {
+                display: block;
+                max-width: 2.5rem;
+                height: auto;
+                margin-left: 1.7rem;
+            }
+            span {
+                font-size: 1.1rem;
+                display: inline-block;
+                color: var(--main-color-white);
+                transition: .3s all;
+            }
+        }
+    }
+    &__dark {
+        background-color: var(--main-color-white);
+        .header {
+            &__nav {
+                .discover {
+                    svg {
+                        path {
+                            &:nth-child(2),
+                            &:nth-child(3) {
+                                fill: var(--main-color-black);
+                            }
+                        }
+                    }
+                }
+                .list {
+                    li {
+                        a {
+                            color: var(--main-color-black);
+                        }
+                    }
+                }
+            }
+            &__right {
+                .messengers {
+                    svg {
+                        path {
+                            fill: var(--main-color-black);
+                        }
+                    }
+                }
+                .languages {
+                    &__box {
+                        span {
+                            color: var(--main-color-black);
+                        }
+                    }
+                }
+                .calls {
+                    span {
+                        color: var(--main-color-black);
+                    }
+                }
+            }
+        }
+    }
+    &__transparent {
+        background-color: transparent;
+    }
+}
+
+@media (max-width: 900.98px) {
+    .header {
+        z-index: 100;
+        &__desc {
+            display: none;
+        }
+        &__mob {
+            padding: 0 2.4rem;
+            @include flexBetween();
+            .discover {
+                height: 3.9rem;
+                svg {
+                    display: block;
+                    height: 100%;
+                    width: auto;
+                }
+            }
+            .btns {
+                @include flexEnd();
+            }
+            .callback {
+                display: block;
+                position: relative;
+                width: 3.6rem;
+                svg {
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                }
+                &:before,
+                &:after {
+                    position: absolute;
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    border: inherit;
+                    top: 0;
+                    left: 0;
+                    z-index: 0;
+                    border: 1px solid var(--main-color-yellow);
+                    background: transparent;
+                    border-radius: inherit;
+                    animation: pulsing 2.5s linear infinite;
+                }
+                &:after {
+                    animation: pulsing1 2.5s linear infinite;
+                }
+            }
+            .mnu {
+                background-color: transparent;
+                padding: 0;
+                display: block;
+                width: 2.2rem;
+                border: none;
+                margin-left: 3.3rem;
+                svg {
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        &__dark {
+            padding-bottom: 1rem;
+            .header {
+                &__mob {
+                    .discover {
+                        svg {
+                            path {
+                                &:nth-child(2),
+                                &:nth-child(3) {
+                                    fill: var(--main-color-black);
+                                }
+                            }
+                        }
+                    }
+                    .btns {
+                        .callback {
+                            svg {
+                                path {
+                                    stroke: var(--main-color-black);
+                                    fill: var(--main-color-black);
+                                }
+                            }
+                        }
+                        .mnu {
+                            svg {
+                                path {
+                                    fill: var(--main-color-black);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--main-color-white);
+        overflow: auto;
+        z-index: 99;
+        padding: 0 2.4rem;
+        padding-top: 12rem;
+        .list {
+            li {
+                margin-bottom: 4rem;
+                position: relative;
+                &:before {
+                    position: absolute;
+                    content: '';
+                    width: 1rem;
+                    height: 1rem;
+                    left: 0;
+                    top: 50%;
+                    background-color: var(--main-color-yellow);
+                    transition: 0.2s ease-in-out;
+                    transform: rotate(45deg) translateY(-50%) scale(0);
+                }
+                &.active {
+                    padding-left: 3rem;
+                    &:before {
+                        transform: rotate(45deg) translateY(-50%) scale(1);
+                    }
+                }
+                a {
+                    font-family: "Corbel-B";
+                    font-size: 4rem;
+                    color: var(--main-color-black);
+                }
+            }
+        }
+    }
+}
+
+@keyframes pulsing {
+    0% {
+        opacity: 1;
+        transform: scaleY(1) scaleX(1);
+    }
+    20% {
+        opacity: 0.5;
+    }
+    70% {
+        opacity: 0.5;
+        transform: scaleY(1.4) scaleX(1.4);
+    }
+    80% {
+        opacity: 0;
+        transform: scaleY(1.4) scaleX(1.4);
+    }
+    90% {
+        opacity: 0;
+        transform: scaleY(1) scaleX(1);
+    }
+}
+@keyframes pulsing1 {
+    0% {
+        opacity: 1;
+        transform: scaleY(1) scaleX(1);
+    }
+    20% {
+        opacity: 0.5;
+    }
+    70% {
+        opacity: 0.5;
+        transform: scaleY(1.2) scaleX(1.2);
+    }
+    80% {
+        opacity: 0;
+        transform: scaleY(1.2) scaleX(1.2);
+    }
+    90% {
+        opacity: 0;
+        transform: scaleY(1) scaleX(1);
+    }
+}
+
+//end header
