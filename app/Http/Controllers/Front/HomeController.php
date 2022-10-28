@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\Resume;
+use App\Models\News;
+use App\Models\Project;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
-class ResumeController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,15 @@ class ResumeController extends Controller
      */
     public function index()
     {
-        $resume = Resume::all();
-        return view('dashboard.resume.index', [
-            'resume'=>$resume
+        $news = News::all();
+        $projects = Project::paginate(6);
+        $teams = Team::all();
+        $teams = Team::all();
+
+        return view('welcome', [
+            'news'=>$news,
+            'projects'=>$projects,
+            'teams'=>$teams,
         ]);
     }
 
@@ -39,20 +47,7 @@ class ResumeController extends Controller
      */
     public function store(Request $request)
     {
-        $resume = new Resume();
-        // $resume->vacancy_id = $request->
-        $resume->name = $request->name;
-        $resume->phone = $request->phone;
-        // if($request->file('file')){
-        //     $file= $request->file('file');
-        //     $filename= date('YmdHi').$file->getClientOriginalName();
-        //     $file-> move(public_path('/Image/resume'), $filename);
-        //     $resume['photo']= '/Image/resume/'.$filename;
-        // }
-
-        $resume->save();
-
-        return redirect()->back();
+        //
     }
 
     /**
@@ -97,13 +92,6 @@ class ResumeController extends Controller
      */
     public function destroy($id)
     {
-
-        $resume = Resume::find($id);
-
-        $resume->delete();
-        if(is_file(public_path($resume->file))){
-            unlink(public_path($resume->file));
-        }
-        return redirect()->back();
+        //
     }
 }

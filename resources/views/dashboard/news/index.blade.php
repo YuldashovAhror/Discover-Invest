@@ -39,13 +39,13 @@
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$new->description_en}}</td>
                                 <td class="px-6 py-2 text-sm" style="width: 130px;">
                                     <form action="{{ Route('dashboard.news.edit', $new->id) }}" style="display: inline;">
-                                        <button type="submit" class="btn btn-primary waves-effect waves-light"><i class="pencil"></i></button>
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light"><i class="lni lni-pencil"></i></button>
                                     </form>
                                     <form action="{{ Route('dashboard.news.destroy', $new->id) }}" method="post" style="display: inline;">
                                         @csrf
                                         @method('delete')
         
-                                        <button type="submit" class="btn btn-danger waves-effect waves-light"><i class="uil-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger waves-effect waves-light"><i class="lni lni-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

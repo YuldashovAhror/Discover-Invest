@@ -1,10 +1,9 @@
 @extends('layouts.main')
-
 @section('style')
 @endsection
-
 @section('content')
     <div class="wrapper">
+        {{-- @dd( $projects) --}}
         {{--=========SECTION MAIN=========--}}
         <section class="section__main">
             <img src="/img/bg/bg-main.jpg" alt="">

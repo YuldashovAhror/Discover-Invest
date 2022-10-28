@@ -49,7 +49,7 @@ class VacansyController extends Controller
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('Image/vacancy'), $filename);
-            $vacancy['photo']= $filename;
+            $vacancy['photo']= '/Image/vacancy/'.$filename;
         }
         $vacancy->name_uz = $request->name_uz;
         $vacancy->name_ru = $request->name_ru;
@@ -116,8 +116,12 @@ class VacansyController extends Controller
         if($request->file('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('Image/vacancy'), $filename);
-            $vacancy['photo']= $filename;
+            $file-> move(public_path('/Image/vacancy'), $filename);
+            $vacancy['photo']= '/Image/vacancy/'.$filename;
+        }
+
+        if(is_file(public_path($vacancy->photo))){
+            unlink(public_path($vacancy->photo));
         }
         $vacancy->name_uz = $request->name_uz;
         $vacancy->name_ru = $request->name_ru;

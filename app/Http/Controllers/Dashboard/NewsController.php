@@ -48,8 +48,8 @@ class NewsController extends Controller
         if($request->file('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('Image/news'), $filename);
-            $news['photo']= $filename;
+            $file-> move(public_path('/Image/news'), $filename);
+            $news['photo']= '/Image/news/'.$filename;
         }
         $news->date = $request->date;
         $news->title_uz = $request->title_uz;
@@ -108,8 +108,12 @@ class NewsController extends Controller
         if($request->file('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('Image/news'), $filename);
-            $news['photo']= $filename;
+            $file-> move(public_path('/Image/news'), $filename);
+            $news['photo']= '/Image/news/'.$filename;
+        }
+
+        if(is_file(public_path($news->photo))){
+            unlink(public_path($news->photo));
         }
         $news->date = $request->date;
         $news->title_uz = $request->title_uz;

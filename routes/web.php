@@ -6,6 +6,8 @@ use App\Http\Controllers\Dashboard\ProjectController;
 use App\Http\Controllers\Dashboard\ResumeController;
 use App\Http\Controllers\Dashboard\TeamController;
 use App\Http\Controllers\Dashboard\VacansyController;
+use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\VacancyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +21,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+//////// Home \\\\\\\\\
+Route::get('/', [HomeController::class, "index"])->name('welcome');
 
 /// Dashboard \\\\
 
@@ -74,6 +79,16 @@ Route::delete('/admin/resume/{id}', [ResumeController::class, 'destroy'])->name(
 Route::get('/admin/contact', [ContactController::class, "index"])->name('dashboard.contact');
 Route::post('/admin/contact/store', [ContactController::class, 'store'])->name('dashboard.contact.store');
 Route::delete('/admin/contact/{id}', [ContactController::class, "destroy"])->name('dashboard.contact.destroy');
+
+
+//////// Front Route \\\\\\\\\\\\
+
+Route::get('/vacancy', [VacancyController::class, "index"])->name('vacancy');
+Route::get('/vacancy/create', [VacancyController::class, "create"])->name('vacancy.create');
+Route::post('/vacancy/store', [VacansyController::class, 'store'])->name('vacancy.store');
+Route::get('/vacancy/edit/{id}', [VacancyController::class, 'edit'])->name('vacancy.edit');
+Route::put('/vacancy/{id}', [VacancyController::class, "update"])->name('vacancy.update');
+Route::delete('/vacancy/{id}', [VacancyController::class, 'destroy'])->name('vacancy.destroy');
 
 Route::view('projects', 'projects');
 Route::view('career', 'vacancy');

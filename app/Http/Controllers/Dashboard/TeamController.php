@@ -49,8 +49,8 @@ class TeamController extends Controller
         if($request->file('photo')){
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('Image/teams'), $filename);
-            $teams['photo']= $filename;
+            $file-> move(public_path('/Image/teams'), $filename);
+            $teams['photo']= '/Image/teams/'.$filename;
         }
         $teams->name_uz = $request->name_uz;
         $teams->name_ru = $request->name_ru;
@@ -111,7 +111,10 @@ class TeamController extends Controller
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('Image/teams'), $filename);
-            $teams['photo']= $filename;
+            $teams['photo']= '/Image/teams/'.$filename;
+        }
+        if(is_file(public_path($teams->photo))){
+            unlink(public_path($teams->photo));
         }
         $teams->name_uz = $request->name_uz;
         $teams->name_ru = $request->name_ru;
@@ -134,6 +137,9 @@ class TeamController extends Controller
     {
         $teams = Team::find($id);
         $teams->delete();
+        if(is_file(public_path($teams->photo))){
+            unlink(public_path($teams->photo));
+        }
         return redirect()->route('dashboard.team');
     }
 }

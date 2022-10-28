@@ -33,7 +33,7 @@
                                         @csrf
                                         @method('delete')
         
-                                        <button type="submit" class="btn btn-danger waves-effect waves-light"><i class="uil-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger waves-effect waves-light"><i class="lni lni-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

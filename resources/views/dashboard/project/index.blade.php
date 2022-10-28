@@ -1,6 +1,5 @@
 @extends('layouts.dashboard')
 @section('content')
-    
 <div class="row">
     <div class="col-xl-12">
         <div class="card">
@@ -36,14 +35,13 @@
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$project->description_ru}}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$project->description_en}}</td>
                                 <td class="px-6 py-2 text-sm" style="width: 130px;">
-                                    <a href="{{ Route('dashboard.project.edit', $project->id) }}" style="display: inline;">
-                                        <i class="lni lni-pencil"></i>
-                                    </a>
+                                    <form action="{{ Route('dashboard.project.edit', $project->id) }}" style="display: inline;">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light"><i class="lni lni-pencil"></i></button>
+                                    </form>
                                     <form action="{{ Route('dashboard.project.destroy', $project->id) }}" method="post" style="display: inline;">
                                         @csrf
                                         @method('delete')
-                                        <i class="lni lni-trash"></i>
-                                        <button type="submit"></button>
+                                        <button type="submit" class="btn btn-danger "><i class="lni lni-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

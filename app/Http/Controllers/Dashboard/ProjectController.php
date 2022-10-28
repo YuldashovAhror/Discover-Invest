@@ -112,12 +112,12 @@ class ProjectController extends Controller
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('Image/projects'), $filename);
-            $projects['photo']= $filename;
+            $projects['photo']= 'Image/projects/'.$filename;
         }
-        // dd('asd');
-        // if(file(public_path($projects->photo))){
-        //     unlink(public_path($projects->photo));
-        // }
+
+        if(is_file(public_path($projects->photo))){
+            unlink(public_path($projects->photo));
+        }
         $projects->name_uz = $request->name_uz;
         $projects->name_ru = $request->name_ru;
         $projects->name_en = $request->name_en;
