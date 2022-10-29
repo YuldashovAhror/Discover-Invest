@@ -53,7 +53,7 @@
                             </svg>
                         </div>
                     </div>
-                    <a href="" class="calls">
+                    <a href="tel:+ 998 (71) 203 77 79" class="calls">
                         <span class="general__euclid-b">+ 998 (71) 203 77 79</span>
                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="50" height="50" fill="#FAB448"/>

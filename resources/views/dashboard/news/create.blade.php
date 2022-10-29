@@ -40,15 +40,21 @@
                             </div>
                             <div class="col-4">
                                 <label for="inputAddress" class="form-label">Описание Uz</label>
-                                <textarea class="form-control" name="description_uz" id="inputAddress" placeholder="..." rows="3"></textarea>
+                                <div class="form-group">
+                                    <textarea class="ckeditor form-control" name="description_uz"></textarea>
+                                </div>
                             </div>
                             <div class="col-4">
                                 <label for="inputAddress2" class="form-label">Описание Ru</label>
-                                <textarea class="form-control" name="description_ru" id="inputAddress2" placeholder=" ..." rows="3"></textarea>
+                                <div class="form-group">
+                                    <textarea class="ckeditor form-control" name="description_ru"></textarea>
+                                </div>
                             </div>
                             <div class="col-4">
                                 <label for="inputAddress2" class="form-label">Описание En</label>
-                                <textarea class="form-control" name="description_en" id="inputAddress2" placeholder=" ..." rows="3"></textarea>
+                                <div class="form-group">
+                                    <textarea class="ckeditor form-control" name="description_en"></textarea>
+                                </div>
                             </div>
                             <div class="col-4">
                                 <button type="submit" class="btn btn-light px-5">Сохронит</button>

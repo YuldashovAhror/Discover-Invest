@@ -18,4 +18,5 @@
 	<link rel="stylesheet" href="/assets/css/dark-theme.css" />
 	<link rel="stylesheet" href="/assets/css/semi-dark.css" />
 	<link rel="stylesheet" href="/assets/css/header-colors.css" />
+	{{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> --}}
 	<title>Dashboard</title>

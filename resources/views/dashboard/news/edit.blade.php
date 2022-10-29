@@ -46,15 +46,15 @@
                             </div>
                             <div class="col-4">
                                 <label for="description_uz" class="form-label">Описание Uz</label>
-                                <textarea class="form-control" name="description_uz" id="description_uz" placeholder="..." rows="3">{{$news->description_uz}}</textarea>
+                                <textarea class="ckeditor form-control" name="description_uz">{{$news->description_uz}}</textarea>
                             </div>
                             <div class="col-4">
                                 <label for="inputAddress2" class="form-label">Описание Ru</label>
-                                <textarea class="form-control" name="description_ru" id="inputAddress2" placeholder=" ..." rows="3">{{$news->description_ru}}</textarea>
+                                <textarea class="ckeditor form-control" name="description_ru">{{$news->description_ru}}</textarea>
                             </div>
                             <div class="col-4">
                                 <label for="inputAddress2" class="form-label">Описание En</label>
-                                <textarea class="form-control" name="description_en" id="inputAddress2" placeholder=" ..." rows="3">{{$news->description_en}}</textarea>
+                                <textarea class="ckeditor form-control" name="description_en">{{$news->description_en}}</textarea>
                             </div>
                             <div class="col-4">
                                 <button type="submit" class="btn btn-light px-5">Сохронит</button>

@@ -34,9 +34,9 @@
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$new->title_uz}}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$new->title_ru}}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$new->title_en}}</td>
-                                <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$new->description_uz}}</td>
-                                <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$new->description_ru}}</td>
-                                <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$new->description_en}}</td>
+                                <td class="px-6 py-2 text-sm whitespace-no-wrap"> {!! $new->description_uz !!}</td>
+                                <td class="px-6 py-2 text-sm whitespace-no-wrap"> {!! $new->description_ru !!}</td>
+                                <td class="px-6 py-2 text-sm whitespace-no-wrap"> {!! $new->description_en !!}</td>
                                 <td class="px-6 py-2 text-sm" style="width: 130px;">
                                     <form action="{{ Route('dashboard.news.edit', $new->id) }}" style="display: inline;">
                                         <button type="submit" class="btn btn-primary waves-effect waves-light"><i class="lni lni-pencil"></i></button>
