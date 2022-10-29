@@ -98,23 +98,22 @@ class NewsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $this->validate($request, [
-            'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-        ]);
-        
+    {   
         $news = News::find($id);
 
         if($request->file('photo')){
+            $this->validate($request, [
+                'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            ]);
+            if(is_file(public_path($news->photo))){
+                unlink(public_path($news->photo));
+            }
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('/Image/news'), $filename);
             $news['photo']= '/Image/news/'.$filename;
         }
 
-        if(is_file(public_path($news->photo))){
-            unlink(public_path($news->photo));
-        }
         $news->date = $request->date;
         $news->title_uz = $request->title_uz;
         $news->title_ru = $request->title_ru;

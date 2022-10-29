@@ -14,10 +14,15 @@
                         <div class="card-title d-flex align-items-center">
                             <div></i>
                             </div>
-                            <h5 class="mb-0 text-white">Photo добавить</h5>
+                            <h5 class="mb-0 text-white">Фото добавить</h5>
                         </div>
-                        <div class="mb-3">
-                            <input type="file" class="form-control" name="photo" aria-label="file example" required>
+                        <div class="mb-12">
+                            <div class="mb-3 text-center">
+                                <img src="{{$team->photo}}" alt="">
+                            </div>
+                            <div>
+                                <input type="file" class="form-control" name="photo">
+                            </div>
                         </div>
                         <hr>
                         <div class="row g-3">

@@ -16,8 +16,13 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="md-6">
-                                    <input type="file" name="photo" class="form-control" aria-label="file example" required>
+                                <div class="mb-12">
+                                    <div class="mb-3 text-center">
+                                        <img src="{{$news->photo}}" alt="">
+                                    </div>
+                                    <div>
+                                        <input type="file" class="form-control" name="photo">
+                                    </div>
                                 </div>
                                 <div class="md-6">
                                     <label for="date" class="form-label">Свидание</label>

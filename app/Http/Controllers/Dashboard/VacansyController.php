@@ -107,22 +107,22 @@ class VacansyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-        ]);
-        
+
         $vacancy = Vacansy::find($id);
         
         if($request->file('photo')){
+            $this->validate($request, [
+                'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            ]);
+            if(is_file(public_path($vacancy->photo))){
+                unlink(public_path($vacancy->photo));
+            }
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('/Image/vacancy'), $filename);
             $vacancy['photo']= '/Image/vacancy/'.$filename;
         }
 
-        if(is_file(public_path($vacancy->photo))){
-            unlink(public_path($vacancy->photo));
-        }
         $vacancy->name_uz = $request->name_uz;
         $vacancy->name_ru = $request->name_ru;
         $vacancy->name_en = $request->name_en;

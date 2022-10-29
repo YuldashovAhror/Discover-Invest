@@ -100,22 +100,22 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-        ]);
         
-        // dd('asd');
         $teams = Team::find($id);
 
         if($request->file('photo')){
+            $this->validate($request, [
+                'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            ]);
+            if(is_file(public_path($teams->photo))){
+                unlink(public_path($teams->photo));
+            }
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('Image/teams'), $filename);
             $teams['photo']= '/Image/teams/'.$filename;
         }
-        if(is_file(public_path($teams->photo))){
-            unlink(public_path($teams->photo));
-        }
+        
         $teams->name_uz = $request->name_uz;
         $teams->name_ru = $request->name_ru;
         $teams->name_en = $request->name_en;
