@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+{{-- @dd($news) --}}
     <div class="wrapper">
         <section class="section__banner">
             <div class="general__container">
@@ -16,18 +17,19 @@
         <section class="section__news">
             <div class="general__container">
                 <div class="news__container">
-                    <?php for ($i = 1; $i < 5; $i++):?>
+                    @foreach ($news as $new)
+                        
                     <div class="news__item" data-aos="fade-up">
-                        <span class="date general__euclid-l">01.09.2022</span>
+                        <span class="date general__euclid-l">{{$new->date}}</span>
                         <div class="pic">
-                            <img class="pic__banner" src="<?php echo '/img/news/'.$i.'.jpg'; ?>" alt="">
+                            <img class="pic__banner" src="{{$new->photo}}" alt="">
                         </div>
                         <div class="content">
-                            <a href="/blog-single" class="title general__euclid-r">Архитектор – это не просто профессия, а образ жизни.</a>
-                            <a href="/blog-single" class="link general__euclid-r">Подробнее</a>
+                            <a href="{{route('blog.single',$new->id)}}" class="title general__euclid-r">{{$new->title_ru}}</a>
+                            <a href="{{route('blog.single',$new->id)}}" class="link general__euclid-r">Подробнее</a>
                         </div>
                     </div>
-                    <?php endfor ?>
+                    @endforeach
                 </div>
             </div>
         </section>

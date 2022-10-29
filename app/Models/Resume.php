@@ -9,7 +9,7 @@ class Resume extends Model
 {
     use HasFactory;
 
-    public function vacancys()
+    public function vacancy()
     {
         return $this->belongsTo(Vacansy::class, 'vacancy_id');
     }

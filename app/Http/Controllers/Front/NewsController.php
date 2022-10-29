@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -14,7 +15,10 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news = News::all();
+        return view('blog.data', [
+            'news'=>$news
+        ]);
     }
 
     /**
@@ -46,7 +50,12 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        // dd('asd');
+        $new = News::find($id);
+
+        return view('blog.data-single',[
+            'new'=>$new,
+        ]);
     }
 
     /**

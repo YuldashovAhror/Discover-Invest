@@ -18,11 +18,11 @@
                             <h5 class="mb-0 text-white">Фото добавить</h5>
                         </div>
                         <div class="mb-12">
-                            <div class="mb-9">
-                                <input type="file" class="form-control" name="photo" aria-label="file example" required>
-                            </div>
-                            <div class="mb-3">
+                            <div class="mb-3 text-center">
                                 <img src="/{{$project->photo}}" alt="">
+                            </div>
+                            <div>
+                                <input type="file" class="form-control" name="photo">
                             </div>
                         </div>
                         <hr>

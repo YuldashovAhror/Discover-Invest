@@ -9,7 +9,7 @@ class Vacansy extends Model
 {
     use HasFactory;
 
-    public function blogs()
+    public function resumeies()
     {
         return $this->hasMany(Resume::class);
     }

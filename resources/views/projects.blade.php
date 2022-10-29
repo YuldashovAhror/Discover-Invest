@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="wrapper">
-
+{{-- @dd($projects) --}}
         {{--=========SECTION BANNER=========--}}
         <section class="section__banner">
             <div class="general__container">
@@ -20,15 +20,16 @@
         <section class="section__projects">
             <div class="general__container">
                 <div class="projects">
-                    <?php for ($i = 1; $i < 6; $i++):?>
+                    @foreach ($projects as $project)
+                        
                     <div class="projects__box" data-aos="fade-up">
-                        <img src="<?php echo '/img/projects/'.$i.'.jpg'; ?>" alt="">
+                        <img src="{{$project->photo}}" alt="">
                         <div class="content">
-                            <a href="" class="title general__euclid-m">Конгресс Холл</a>
-                            <p class="subtitle general__euclid-r">Уникальная площадка, подходящая для проведения мероприятий различного формата – международных конференций и форумов. Конгресс-холл, построенный на территории Международного делового центра "Tashkent City" в 2019 году, расположен в живописном месте с захватывающим панорамным видом. В современном сооружении имеются конференц-залы всех видов и размеров, небольшая концертная площадка, рестораны и многое другое.</p>
+                            <a href="" class="title general__euclid-m">{{$project->name_ru}}</a>
+                            <p class="subtitle general__euclid-r">{{$project->description_ru}}</p>
                         </div>
                     </div>
-                    <?php endfor ?>
+                    @endforeach
                 </div>
             </div>
         </section>

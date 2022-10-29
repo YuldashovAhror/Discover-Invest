@@ -15,7 +15,7 @@ class ResumeController extends Controller
      */
     public function index()
     {
-        $resume = Resume::all();
+        $resume = Resume::with('vacancy')->orderBy('id')->get();
         return view('dashboard.resume.index', [
             'resume'=>$resume
         ]);
@@ -39,16 +39,19 @@ class ResumeController extends Controller
      */
     public function store(Request $request)
     {
+        
         $resume = new Resume();
-        // $resume->vacancy_id = $request->
+        $resume->vacancy_id = $request->vacancy_id;
         $resume->name = $request->name;
         $resume->phone = $request->phone;
-        // if($request->file('file')){
-        //     $file= $request->file('file');
-        //     $filename= date('YmdHi').$file->getClientOriginalName();
-        //     $file-> move(public_path('/Image/resume'), $filename);
-        //     $resume['photo']= '/Image/resume/'.$filename;
-        // }
+    
+        if(!empty($request->file('file'))){
+            $file= $request->file('file');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('/Image/resume'), $filename);
+            $resume['file']= '/Image/resume/'.$filename;
+        }
+
 
         $resume->save();
 
@@ -63,7 +66,10 @@ class ResumeController extends Controller
      */
     public function show($id)
     {
-        //
+        $resum = Resume::find($id); 
+        return view('dashboard.resume.show', [
+            'resum'=>$resum
+        ]);
     }
 
     /**

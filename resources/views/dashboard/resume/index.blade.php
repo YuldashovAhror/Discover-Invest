@@ -23,10 +23,11 @@
                         ?>
                         <tbody>
                         @foreach($resume as $resum)
+                        
                             <tr>
                                 <td  style="width: 60px;">{{$num++}}</td>
-                                <td><img src="{{$resum->file}}" alt="" style="width: 100px; height: 100px;"></td>
-                                <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$resum->vacancy_id}}</td>
+                                <td><a href="{{route('dashboard.resume.show', $resum->id)}}"><img src="{{$resum->file}}" alt="" style="width: 100px; height: 100px;"></a></td>
+                                <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{ $resum->vacancy->name_ru }}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$resum->name}}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$resum->phone}}</td>
                                 <td class="px-6 py-2 text-sm" style="width: 130px;">

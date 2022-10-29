@@ -7,6 +7,8 @@ use App\Http\Controllers\Dashboard\ResumeController;
 use App\Http\Controllers\Dashboard\TeamController;
 use App\Http\Controllers\Dashboard\VacansyController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\NewsController as FrontNewsController;
+use App\Http\Controllers\Front\ProjectController as FrontProjectController;
 use App\Http\Controllers\Front\VacancyController;
 use Illuminate\Support\Facades\Route;
 
@@ -72,6 +74,7 @@ Route::delete('/admin/vacancy/{id}', [VacansyController::class, 'destroy'])->nam
 
 Route::get('/admin/resume', [ResumeController::class, "index"])->name('dashboard.resume');
 Route::post('/admin/resume/store', [ResumeController::class, 'store'])->name('dashboard.resume.store');
+Route::get('/admin/show/{id}', [ResumeController::class, 'show'])->name('dashboard.resume.show');
 Route::delete('/admin/resume/{id}', [ResumeController::class, 'destroy'])->name('dashboard.resume.destroy');
 
 ///// Contacts \\\\\
@@ -83,19 +86,29 @@ Route::delete('/admin/contact/{id}', [ContactController::class, "destroy"])->nam
 
 //////// Front Route \\\\\\\\\\\\
 
-Route::get('/vacancy', [VacancyController::class, "index"])->name('vacancy');
-Route::get('/vacancy/create', [VacancyController::class, "create"])->name('vacancy.create');
-Route::post('/vacancy/store', [VacansyController::class, 'store'])->name('vacancy.store');
-Route::get('/vacancy/edit/{id}', [VacancyController::class, 'edit'])->name('vacancy.edit');
-Route::put('/vacancy/{id}', [VacancyController::class, "update"])->name('vacancy.update');
-Route::delete('/vacancy/{id}', [VacancyController::class, 'destroy'])->name('vacancy.destroy');
+Route::get('/career', [VacancyController::class, "index"])->name('vacancy');
+Route::get('/career/{id}', [VacancyController::class, "show"])->name('vacancy.show');
+// Route::post('/vacancy/store', [VacansyController::class, 'store'])->name('vacancy.store');
+// Route::get('/vacancy/edit/{id}', [VacancyController::class, 'edit'])->name('vacancy.edit');
+// Route::put('/vacancy/{id}', [VacancyController::class, "update"])->name('vacancy.update');
+// Route::delete('/vacancy/{id}', [VacancyController::class, 'destroy'])->name('vacancy.destroy');
 
-Route::view('projects', 'projects');
-Route::view('career', 'vacancy');
+/////// Projects \\\\\\
+
+Route::get('/projects', [FrontProjectController::class, "index"])->name('project');
+
+/////// News \\\\\\
+
+Route::get('/blog', [FrontNewsController::class, "index"])->name('blog');
+Route::get('/blog-single/{id}', [FrontNewsController::class, "show"])->name('blog.single');
+
+
+// Route::view('projects', 'projects');
+// Route::view('career', 'vacancy');
 Route::view('about', 'about');
 Route::view('contacts', 'contact');
 
-Route::view('blog', 'blog.data');
-Route::view('blog-single', 'blog.data-single');
+// Route::view('blog', 'blog.data');
+// Route::view('blog-single', 'blog.data-single');
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Vacansy;
 use Illuminate\Http\Request;
 
 class VacancyController extends Controller
@@ -14,7 +15,10 @@ class VacancyController extends Controller
      */
     public function index()
     {
-        //
+        $vacancy = Vacansy::all();
+        return view('vacancy',[
+            'vacancy'=>$vacancy
+        ]);
     }
 
     /**

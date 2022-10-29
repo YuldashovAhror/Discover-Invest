@@ -136,6 +136,7 @@
         </section>
 
         {{--=========SECTION TEAM=========--}}
+    
         <section class="section__team">
             <div class="general__container">
                 <div class="general__top">
@@ -157,20 +158,22 @@
                     </div>
                 </div>
             </div>
-            <div class="team__carousel owl-carousel">
-                <?php for ($i = 1; $i < 5; $i++):?>
-                <div class="team__carousel-item">
-                    <div class="pic">
-                        <img src="/img/discover.svg" alt="Discover Invest" class="logo">
-                        <img class="pic__banner" src="<?php echo '/img/team/'.$i.'.jpg'; ?>" alt="">
+            
+
+                <div class="team__carousel owl-carousel">
+                    @foreach ($teams as $team)
+                    <div class="team__carousel-item">
+                        <div class="pic">
+                            <img src="/img/discover.svg" alt="Discover Invest" class="logo">
+                            <img class="pic__banner" src="{{$team->photo}}" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="" class="title general__euclid-m">{{$team->name_ru}}</a>
+                            <p class="subtitle general__euclid-r">{{$team->position_ru}}</p>
+                        </div>
                     </div>
-                    <div class="content">
-                        <a href="" class="title general__euclid-m">Кадыров Бехруз</a>
-                        <p class="subtitle general__euclid-r">Руководитель отдела продаж</p>
-                    </div>
+                    @endforeach
                 </div>
-                <?php endfor ?>
-            </div>
         </section>
 
         {{--=========SECTION PROJECTS=========--}}
@@ -181,15 +184,15 @@
                     <span class="pl">проекты</span>
                 </h2>
                 <div class="projects">
-                    <?php for ($i = 1; $i < 6; $i++):?>
+                    @foreach ($projects as $project)
                         <div class="projects__box" data-aos="fade-up">
-                            <img src="<?php echo '/img/projects/'.$i.'.jpg'; ?>" alt="">
+                            <img src="{{$project->photo}}" alt="">
                             <div class="content">
-                                <a href="" class="title general__euclid-m">Конгресс Холл</a>
-                                <p class="subtitle general__euclid-r">Уникальная площадка, подходящая для проведения мероприятий различного формата – международных конференций и форумов. Конгресс-холл, построенный на территории Международного делового центра "Tashkent City" в 2019 году, расположен в живописном месте с захватывающим панорамным видом. В современном сооружении имеются конференц-залы всех видов и размеров, небольшая концертная площадка, рестораны и многое другое.</p>
+                                <a href="" class="title general__euclid-m">{{$project->name_ru}}</a>
+                                <p class="subtitle general__euclid-r">{{$project->description_ru}}</p>
                             </div>
                         </div>
-                    <?php endfor ?>
+                    @endforeach
                 </div>
                 <a href="/projects" class="projects__link general__link" data-aos="fade-up">
                     <span>Все проекты</span>
@@ -220,18 +223,18 @@
                 </div>
             </div>
             <div class="news__carousel owl-carousel">
-                <?php for ($i = 1; $i < 4; $i++):?>
+                @foreach ($news as $new)
                 <div class="news__carousel-item">
-                    <span class="date general__euclid-l">01.09.2022</span>
+                    <span class="date general__euclid-l">{{$new->date}}</span>
                     <div class="pic">
-                        <img class="pic__banner" src="<?php echo '/img/news/'.$i.'.jpg'; ?>" alt="">
+                        <img class="pic__banner" src="{{$new->photo}}" alt="">
                     </div>
                     <div class="content">
-                        <a href="/blog-single" class="title general__euclid-r">Архитектор – это не просто профессия, а образ жизни.</a>
-                        <a href="/blog-single" class="link general__euclid-r">Подробнее</a>
+                        <a href="{{route('blog.single',$new->id)}}" class="title general__euclid-r">{{$new->title_ru}}</a>
+                        <a href="{{route('blog.single',$new->id)}}" class="link general__euclid-r">Подробнее</a>
                     </div>
                 </div>
-                <?php endfor ?>
+                @endforeach
             </div>
             <a href="/blog" class="news__link general__link" data-aos="fade-up">
                 <span>Все новости</span>

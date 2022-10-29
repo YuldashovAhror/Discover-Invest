@@ -2,7 +2,7 @@
 
 @section('style')
 @endsection
-
+{{-- @dd($vacancy) --}}
 @section('content')
     <div class="wrapper">
         {{--=========SECTION BANNER=========--}}
@@ -69,35 +69,32 @@
         <section class="section__vacancy">
             <div class="general__container">
                 <div class="vacancy">
-                    <?php for ($i = 1; $i < 5; $i++):?>
+                    @foreach ($vacancy as $vacan)
+                        
                     <div class="vacancy__item" data-aos="fade-up">
-                        <h4 class="title general__corbel-b">Главный инженер проекта</h4>
-                        <div class="subtitle general__corbel-r">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+                        <h4 class="title general__corbel-b">{{$vacan->name_ru}}</h4>
+                        <div class="subtitle general__corbel-r">{{$vacan->description_ru}}</div>
                         <a href="" class="more">
-                            <span class="general__corbel-r">Подробнее</span>
+                            <span class="general__corbel-r" onclick="choose({{ $vacan->id }})">Подробнее</span>
                         </a>
                         {{--begin info box for popup--}}
                         <div class="box">
                             <div class="box__block">
                                 <h4 class="box__name general__corbel-b">Обязанности</h4>
-                                <div class="box__description general__euclid-r">Разработка технологических документов: ПР, СОП, МК, Спецификации оборудования;</div>
+                                <div class="box__description general__euclid-r">{{$vacan->responsihilities_ru}}</div>
                             </div>
                             <div class="box__block">
                                 <h4 class="box__name general__corbel-b">Требования</h4>
-                                <div class="box__description general__euclid-r">Опыт работы от 3х лет в области фармацевтического производства готовых лекарственных форм (ГЛФ).</div>
+                                <div class="box__description general__euclid-r">{{$vacan->requirements_ru}}</div>
                             </div>
                             <div class="box__block">
                                 <h4 class="box__name general__corbel-b">Условия</h4>
-                                <div class="box__description general__euclid-r">Полностью официальная з/п (уровень обсуждается с успешным кандидатом);
-                                    Гибкий подход к выбору режима работы;
-                                    Возможность карьерного роста;
-                                    Работа уникальной экономической зоне «Технополис Москва»;
-                                    Шаговая доступность (5 минут) от м. Текстильщики.</div>
+                                <div class="box__description general__euclid-r">{{$vacan->terms_ru}}</div>
                             </div>
                         </div>
                         {{--end info box for popup--}}
                     </div>
-                    <?php endfor ?>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -118,8 +115,9 @@
                 <div id="content__wrap" class="content__wrap">
 
                 </div>
-                <form action="{{route('dashboard.resume.store')}}" method="POST" class="vacancy__form">
+                <form action="{{route('dashboard.resume.store')}}" method="POST" class="vacancy__form" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="vacancy_id" id="vacancy_id">
                     <h4 class="title general__euclid-b">Анкета соискателя</h4>
                     <label for="vacancy__name" class="vacancy__form-pocket">
                         <span class="general__euclid-r">Ваше имя</span>
@@ -127,7 +125,11 @@
                     </label>
                     <label for="vacancy__tel" class="vacancy__form-pocket">
                         <span class="general__euclid-r">Номер телефона</span>
-                        <input class="general__euclid-m" id="vacancy__tel" name="phone" type="tel" placeholder="+998">
+                        <input id="vacancy__tel" type="tel" class="general__euclid-m" name="phone" placeholder="+998" maxlength="19" required="" pattern="^[0-9-+\s()]*$">
+                    </label>
+                    <label for="vacancy__file" class="vacancy__form-pocket">
+                        <span class="general__euclid-r">Прикрепите файл</span>
+                        <input class="general__euclid-m" id="vacancy__file" type="file" name="file">
                     </label>
                     <button class="vacancy__form-button general__euclid-m">Отправить заявку</button>
                 </form>
@@ -142,6 +144,12 @@
 @endsection
 
 @section('script')
+<script>
+    function choose(id)
+    {
+        $('#vacancy_id').val(id);
+    }
+</script>
     <script>
         $(window).on('load', function () {
             $('.header').addClass('header__dark')

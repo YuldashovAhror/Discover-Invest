@@ -10,9 +10,9 @@
             <div class="general__container">
                 <div class="history">
                     <span class="history__name general__euclid-l">Новости/</span>
-                    <span class="history__name general__euclid-r">Архитектор – это не просто профессия, а образ жизни.</span>
+                    <span class="history__name general__euclid-r">{{$new->title_ru}}</span>
                 </div>
-                <h1 class="title general__corbel-b">Архитектор – это не просто профессия, а образ жизни.</h1>
+                <h1 class="title general__corbel-b">{{$new->title_ru}}</h1>
             </div>
         </section>
 
@@ -21,29 +21,10 @@
             <div class="general__container">
                 <div class="single">
                     <div class="pic">
-                        <img src="/img/news/1.jpg" alt="">
+                        <img src="{{$new->photo}}" alt="">
                     </div>
                     <div class="single__description">
-                        <h3>This article might be the second</h3>
-<p>                        third, or even the tenth you’re reading for the same damn question. You can’t seem to find the correct answer. How much does branding cost? The obvious similar answer is “it DEPENDS.” Yes, I know… the same answer again? But wait. I want to share how you can determine the best solution suited for you and your business!</p>
-
-                        <h5>The good news is if you’re reading this</h5>
-                        you want to invest in the branding of your business, and I want to congratulate you. I’m gonna skip for you the fluff around what is branding and why we should do it. If you want to learn about branding in detail — I invite you to look here. I have many articles about it. At the moment of writing this, I don’t. But, I probably do now(in your present.)
-
-                        ‍This article will explain what you can expect to receive depending on your budget and goals. The last thing you want to do is work with someone and be disappointed with WASTED money. Not only that, you’ll develop a brick wall of doubts and fear for working with designers. We want to avoid this at all costs (not to the point of bankruptcy, though.)‍
-
-                        You will learn where to look for brand designers and how to choose the right fit for you. In the end, your investment will be well invested, and you’ll be proud of your brand.
-                        <h4>The budget for a branding project</h4>
-                        First thing first. You need to know what do you exactly need. I’m going to use a product-based business as an example. Let’s assume you want to rebrand your skincare brand, and you have a budget of $200,000. You want to spend a maximum of 15% of your budget on branding. After spending two minutes in my brain calculating, I know that you can spend a maximum of $30,000 on your branding.‍
-
-                        Again, assuming that you’re rebranding your skincare brand. You’ll probably need (99% of the time):‍
-
-                        Brand Strategy (Brand values, brand mission, target audience, brand personality, tone of voice, tagline)
-                        Brand Naming (You might already have your brand’s name)
-                        Brand Identity System (Logo, colour palette, typography, imagery style, etc.)
-                        Packaging
-                        Website Design & Development (You can start with a template-based theme)‍
-                        Now, each one of these services. There are always freelancers or agencies specialized in every aspect of those services. But, you can find someone who offers all of the above with STUNNING results. Hint: You’re reading an article about this particular kind of designer.
+                        <p>{{$new->description_ru}}</p>
                     </div>
                 </div>
             </div>
@@ -72,18 +53,19 @@
                 </div>
             </div>
             <div class="news__carousel owl-carousel">
-                <?php for ($i = 1; $i < 5; $i++):?>
+                @foreach (App\Models\News::all() as $new)
+                    
                 <div class="news__carousel-item">
-                    <span class="date general__euclid-l">01.09.2022</span>
+                    <span class="date general__euclid-l">{{$new->date}}</span>
                     <div class="pic">
-                        <img class="pic__banner" src="<?php echo '/img/news/'.$i.'.jpg'; ?>" alt="">
+                        <img class="pic__banner" src="{{$new->photo}}" alt="">
                     </div>
                     <div class="content">
-                        <a href="/blog-single" class="title general__euclid-r">Архитектор – это не просто профессия, а образ жизни.</a>
-                        <a href="/blog-single" class="link general__euclid-r">Подробнее</a>
+                        <a href="{{route('blog.single',$new->id)}}" class="title general__euclid-r">Архитектор – это не просто профессия, а образ жизни.</a>
+                        <a href="{{route('blog.single',$new->id)}}" class="link general__euclid-r">Подробнее</a>
                     </div>
                 </div>
-                <?php endfor ?>
+                @endforeach
             </div>
         </section>
     </div>

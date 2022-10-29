@@ -102,22 +102,23 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-        ]);
+        
         
         $projects = Project::find($id);
 
         if($request->file('photo')){
+            $this->validate($request, [
+                'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            ]);
+            if(is_file(public_path($projects->photo))){
+                unlink(public_path($projects->photo));
+            }
             $file= $request->file('photo');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('Image/projects'), $filename);
+            $file->move(public_path('Image/projects'), $filename);
             $projects['photo']= 'Image/projects/'.$filename;
         }
-
-        if(is_file(public_path($projects->photo))){
-            unlink(public_path($projects->photo));
-        }
+        
         $projects->name_uz = $request->name_uz;
         $projects->name_ru = $request->name_ru;
         $projects->name_en = $request->name_en;

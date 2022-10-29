@@ -48,7 +48,7 @@
                             <img src="/img/bg/bg-company.jpg" class="pic__anima" alt="">
                         </div>
                         <p class="subtitle general__euclid-l" data-aos="fade-up">Создавая наши проекты, мы создаем возможности. Строя объекты наших клиентов, мы строим будущее. Откройте для себя Discover Invest, чтобы разнообразить и сделать жизнь людей ярче, создавая уникальную архитектуру и дизайн. Мы заботимся об окружающей среде: компания берет на себя полную ответственность за экологические аспекты, связанные со строительством и эксплуатацией зданий и инфраструктуры.</p>
-                        <a href="" class="link" data-aos="fade-up">
+                        <a href="{{route('project')}}" class="link" data-aos="fade-up">
                             <span class="general__corbel-r pic__anima">Проекты</span>
                         </a>
                     </div>
