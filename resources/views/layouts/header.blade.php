@@ -52,6 +52,11 @@
                                 <path d="M1 1L5 5L9 1" stroke="#FAB448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
+                        <div class="languages__list">
+                            <a href="" class="lang general__corbel-r">Ру</a>
+                            <a href="" class="lang general__corbel-r">En</a>
+                            <a href="" class="lang general__corbel-r">Uzb</a>
+                        </div>
                     </div>
                     <a href="tel:+ 998 (71) 203 77 79" class="calls">
                         <span class="general__euclid-b">+ 998 (71) 203 77 79</span>

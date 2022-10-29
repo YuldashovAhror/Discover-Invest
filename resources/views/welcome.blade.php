@@ -2,6 +2,12 @@
 @section('style')
 @endsection
 @section('content')
+<div class="preloader">
+    <div class="preloader__logo">
+        <lottie-player class="anima" src="https://lottie.host/81d86dc7-e45c-4e24-81c9-a10cd55dc6a4/kZ2z3wZimH.json" background="transparent"  speed="1" loop autoplay></lottie-player>
+    </div>
+</div>
+
     <div class="wrapper">
         {{-- @dd( $projects) --}}
         {{--=========SECTION MAIN=========--}}
@@ -247,6 +253,7 @@
 @endsection
 
 @section('script')
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
         $(window).on('scroll load', () => {
             ($(window).scrollTop() > 80) ?

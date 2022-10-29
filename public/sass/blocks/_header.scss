@@ -106,6 +106,7 @@
             }
         }
         .languages {
+            position: relative;
             margin-right: 3.8rem;
             cursor: pointer;
             &__box {
@@ -121,6 +122,37 @@
                     display: block;
                     max-width: 100%;
                     height: auto;
+                }
+            }
+            &__list {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-top: .5rem;
+                background-color: var(--main-color-yellow);
+                padding: 1rem 1.5rem;
+                transition: .3s all;
+                opacity: 0;
+                visibility: hidden;
+                a {
+                    display: block;
+                    color: var(--main-color-white);
+                    margin-bottom: .5rem;
+                    transition: .3s all;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            &:hover {
+                .languages {
+                    &__list {
+                        opacity: 1;
+                        visibility: visible;
+                    }
                 }
             }
         }

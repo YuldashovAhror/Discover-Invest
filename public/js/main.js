@@ -1,4 +1,7 @@
 "use strict";
+
+let lottieAnima = document.querySelector('.preolader__logo .anima')
+
 var preloader    = $('.preloader'),
     imagesCount  = $('img').length,
     dBody        = $('body'),
@@ -19,10 +22,14 @@ function img_load () {
     progress += percent;
     loadedImg++;
     if (progress >= 100 || loadedImg == imagesCount) {
-
+        lottieAnima?.play()
         setTimeout(function () {
-            preloader.delay(500).fadeOut('slow');
-        }, 800)
+            preloader.delay(500).slideUp('slow');
+        }, 1800)
+
+        setTimeout(()=>{
+            lottieAnima?.pause()
+        }, 1500)
         dBody.css('overflow', '');
 
     }
