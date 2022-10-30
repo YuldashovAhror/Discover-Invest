@@ -1,7 +1,13 @@
 @extends('layouts.main')
 @section('style')
+<style>
+    .wrapper .section__about .about__container .box {
+        overflow: hidden;
+    }
+</style>
 @endsection
 @section('content')
+
 <div class="preloader">
     <div class="preloader__logo">
         <lottie-player class="anima" src="https://lottie.host/81d86dc7-e45c-4e24-81c9-a10cd55dc6a4/kZ2z3wZimH.json" background="transparent"  speed="1" loop autoplay></lottie-player>
@@ -37,7 +43,7 @@
             </svg>
             <div class="general__container">
                 <h2 class="title general__title" data-aos="fade-right">
-                    <span class="line">О компании</span>
+                    <span class="line">{{__('asd.О компании')}}</span>
                     <span class="pl">DISCOVER INVEST</span>
                 </h2>
                 <p class="subtitle general__euclid-l" data-aos="fade-up">Наша компания была основана 15 сентября 2008 года. С первых дней работы мы стремимся к совершенству, которое является основой всего, что мы делаем. Создавая наши проекты, мы создаем возможности. Строя объекты наших клиентов, мы строим будущее. Откройте для себя Discover Invest, чтобы разнообразить и сделать жизнь людей ярче, создавая уникальную архитектуру и дизайн. </p>

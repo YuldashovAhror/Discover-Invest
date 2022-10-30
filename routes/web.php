@@ -30,11 +30,21 @@ use Illuminate\Support\Facades\Route;
 //////// Home \\\\\\\\\
 Route::get('/', [HomeController::class, "index"])->name('welcome');
 
+Route::get('/languages/{loc}', function ($loc) {
+    if (in_array($loc, ['en', 'ru', 'uz'])) {
+        session()->put('locale', $loc);
+    }
+    return redirect()->back();
+});
+
 /// Dashboard \\\\
 
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 });
+
+// Route::get('/admin/words', [\App\Http\Controllers\Dashboard\WordsController::class, 'index']);
+Route::get('/admin/create', [\App\Http\Controllers\Dashboard\WordsController::class, 'create']);
 
 Route::get('/admin/project', [ProjectController::class, "index"])->name('dashboard.project');
 Route::get('/admin/project/create', [ProjectController::class, "create"])->name('dashboard.project.create');
@@ -88,10 +98,6 @@ Route::delete('/admin/contact/{id}', [ContactController::class, "destroy"])->nam
 
 Route::get('/career', [VacancyController::class, "index"])->name('vacancy');
 Route::get('/career/{id}', [VacancyController::class, "show"])->name('vacancy.show');
-// Route::post('/vacancy/store', [VacansyController::class, 'store'])->name('vacancy.store');
-// Route::get('/vacancy/edit/{id}', [VacancyController::class, 'edit'])->name('vacancy.edit');
-// Route::put('/vacancy/{id}', [VacancyController::class, "update"])->name('vacancy.update');
-// Route::delete('/vacancy/{id}', [VacancyController::class, 'destroy'])->name('vacancy.destroy');
 
 /////// Projects \\\\\\
 

@@ -23,6 +23,17 @@ class LangServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('*', function ($view)
+        {
+            if (session()->get('locale') == '') {
+                session()->put('locale', 'ru');
+                app()->setLocale('ru');
+            } else {
+                app()->setLocale(session()->get('locale'));
+            }
+            $lang = session()->get('locale');
+
+            $view->with(['lang'=>$lang]);
+        });
     }
 }

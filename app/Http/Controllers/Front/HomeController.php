@@ -17,6 +17,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (session()->get('locale') == '') {
+            session()->put('locale', 'ru');
+            app()->setLocale('ru');
+        } else {
+            app()->setLocale(session()->get('locale'));
+        }
+        $lang = session()->get('locale');
+
         $news = News::all();
         $projects = Project::paginate(6);
         $teams = Team::all();
@@ -26,6 +34,7 @@ class HomeController extends Controller
             'news'=>$news,
             'projects'=>$projects,
             'teams'=>$teams,
+            'lang'=>$lang
         ]);
     }
 

@@ -4,6 +4,7 @@
 @endsection
 {{-- @dd($vacancy) --}}
 @section('content')
+
     <div class="wrapper">
         {{--=========SECTION BANNER=========--}}
         <section class="section__banner">

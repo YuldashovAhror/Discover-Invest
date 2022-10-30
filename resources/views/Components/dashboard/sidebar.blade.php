@@ -94,7 +94,18 @@
                 <li> <a href="{{route('dashboard.contact')}}"><i class="bx bx-right-arrow-alt"></i>Список</a>
                 </li>
             </ul>
-        </li>				
+        </li>	
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-grid-alt"></i>
+                </div>
+                <div class="menu-title">Словаp</div>
+            </a>
+            <ul>
+                <li> <a href="/admin/create"><i class="bx bx-right-arrow-alt"></i>Список</a>
+                </li>
+            </ul>
+        </li>						
     </ul>
     <!--end navigation-->
 </div>

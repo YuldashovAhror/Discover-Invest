@@ -47,15 +47,15 @@
                     </div>
                     <div class="languages">
                         <div class="languages__box">
-                            <span class="general__corbel-r">Ру</span>
+                            <span class="general__corbel-r">@if($lang == 'uz') Uzb @elseif($lang == 'ru') Ру @elseif($lang == 'en') En @endif</span>
                             <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 1L5 5L9 1" stroke="#FAB448" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <div class="languages__list">
-                            <a href="" class="lang general__corbel-r">Ру</a>
-                            <a href="" class="lang general__corbel-r">En</a>
-                            <a href="" class="lang general__corbel-r">Uzb</a>
+                            <a href="/languages/ru" class="lang general__corbel-r @if($lang == 'uz') active @endif">Ру</a>
+                            <a href="/languages/en" class="lang general__corbel-r @if($lang == 'en') active @endif">En</a>
+                            <a href="/languages/uz" class="lang general__corbel-r @if($lang == 'ru') active @endif">Uzb</a>
                         </div>
                     </div>
                     <a href="tel:+ 998 (71) 203 77 79" class="calls">

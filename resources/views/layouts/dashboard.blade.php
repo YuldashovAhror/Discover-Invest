@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('components.dashboard.links')
+    @livewireStyles
 </head>
 <body>
     @include('components.dashboard.sidebar')
@@ -13,6 +14,7 @@
     </div>        
     {{-- @include('components.dashboard.footer')             --}}
     @include('components.dashboard.scripts')
+    @livewireScripts
 </body>
 </html>
 
