@@ -10,8 +10,8 @@
         <section class="section__banner">
             <div class="general__container">
                 <div class="banner">
-                    <h1 class="title general__corbel-b">Проекты</h1>
-                    <p class="subtitle general__euclid-l">Наша компания была основана 15 сентября 2008 года. С первых дней работы мы стремимся к совершенству, которое является основой всего, что мы делаем. </p>
+                    <h1 class="title general__corbel-b">{{__('asd.Проекты')}}</h1>
+                    <p class="subtitle general__euclid-l">{{__('asd.Наша компания была основана 15 сентября 2008 года. С первых дней работы мы стремимся к совершенству, которое является основой всего, что мы делаем.')}} </p>
                 </div>
             </div>
         </section>
@@ -25,8 +25,8 @@
                     <div class="projects__box" data-aos="fade-up">
                         <img src="{{$project->photo}}" alt="">
                         <div class="content">
-                            <a href="" class="title general__euclid-m">{{$project->name_ru}}</a>
-                            <p class="subtitle general__euclid-r">{{$project->description_ru}}</p>
+                            <a href="" class="title general__euclid-m">{{$project['name_'.$lang]}}</a>
+                            <p class="subtitle general__euclid-r">{{$project['description_'.$lang]}}</p>
                         </div>
                     </div>
                     @endforeach

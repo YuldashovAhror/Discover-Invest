@@ -24,10 +24,10 @@
                     <div class="main__content">
                         <h1 class="title general__corbel-b ">DISCOVER
                             INVEST</h1>
-                        <p class="subtitle general__corbel-r">Здесь строятся великие дела</p>
+                        <p class="subtitle general__corbel-r">{{__('asd.Здесь строятся великие дела')}}</p>
                         <div class="main__btns">
-                            <a href="/projects" class="main__btn"><span class="general__corbel-r">Проекты</span></a>
-                            <a href="/contacts" class="main__btn"><span class="general__corbel-r">Контакты</span></a>
+                            <a href="/projects" class="main__btn"><span class="general__corbel-r">{{__('asd.Проекты')}}</span></a>
+                            <a href="/contacts" class="main__btn"><span class="general__corbel-r">{{__('asd.Контакты')}}</span></a>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <span class="line">{{__('asd.О компании')}}</span>
                     <span class="pl">DISCOVER INVEST</span>
                 </h2>
-                <p class="subtitle general__euclid-l" data-aos="fade-up">Наша компания была основана 15 сентября 2008 года. С первых дней работы мы стремимся к совершенству, которое является основой всего, что мы делаем. Создавая наши проекты, мы создаем возможности. Строя объекты наших клиентов, мы строим будущее. Откройте для себя Discover Invest, чтобы разнообразить и сделать жизнь людей ярче, создавая уникальную архитектуру и дизайн. </p>
+                <p class="subtitle general__euclid-l" data-aos="fade-up">{{__('asd.Наша компания была основана 15 сентября 2008 года. С первых дней работы мы стремимся к совершенству, которое является основой всего, что мы делаем.')}} {{__('asd.Создавая наши проекты, мы создаем возможности. Строя объекты наших клиентов, мы строим будущее.')}} {{__('asd.Откройте для себя Discover Invest, чтобы разнообразить и сделать жизнь людей ярче, создавая уникальную архитектуру и дизайн.')}} </p>
                 <div class="about__container">
                     <div class="about__container-columns" data-aos="fade-down-left">
                         <div class="columns">
@@ -100,9 +100,9 @@
             <div class="general__container">
                 <h2 class="general__title" data-aos="fade-right">
                     <span class="line">
-                        Наши
+                        {{__('asd.Наши')}}
                     </span>
-                    <span class="pl">премущества</span>
+                    <span class="pl">{{__('asd.премущества')}}</span>
                 </h2>
                 <div class="advantages">
                     <div class="advantages__box" data-aos="fade-right">
@@ -116,9 +116,9 @@
                                 <path d="M82.3603 90.25V82.6453C82.3603 73.4635 74.917 66.0203 65.7353 66.0203H48.26C39.0783 66.0203 31.635 73.4635 31.635 82.6453V90.25" stroke="#262524" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h4 class="title">Команда
-                            профессионалов</h4>
-                        <p class="subtitle">Мы тщательно подбираем сотрудников с многолетним опытом работы.</p>
+                        <h4 class="title">{{__('asd.Команда')}}
+                            {{__('asd.профессионалов')}}</h4>
+                        <p class="subtitle">{{__('asd.Мы тщательно подбираем сотрудников с многолетним опытом работы.')}}</p>
                     </div>
                     <div class="advantages__box" data-aos="fade-right">
                         <div class="pic">
@@ -128,9 +128,9 @@
                                 <path d="M38 47.5H23.75C15.8799 47.5 9.5 53.8799 9.5 61.75V80.75C9.5 88.6201 15.8799 95 23.75 95V102.12C23.75 103.037 24.2775 103.872 25.1055 104.266C25.9334 104.659 26.9139 104.541 27.6247 103.962L38.6303 95H52.25C60.1201 95 66.5 88.6201 66.5 80.75V76" stroke="#262524" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h4 class="title">Положительные
-                            отзывы клиентов</h4>
-                        <p class="subtitle">Которые вы можете посмотреть на нашем сайте и убедиться в качестве нашей работы.</p>
+                        <h4 class="title">{{__('asd.Положительные')}}
+                            {{__('asd.отзывы клиентов')}}</h4>
+                        <p class="subtitle">{{__('asd.Которые вы можете посмотреть на нашем сайте и убедиться в качестве нашей работы.')}}</p>
                     </div>
                     <div class="advantages__box" data-aos="fade-right">
                         <div class="pic">
@@ -139,9 +139,9 @@
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M90.725 28.1248C79.0448 27.2033 68.4143 22.553 60.0258 15.3568C58.3063 13.8843 55.689 13.8843 53.9742 15.3568C45.5857 22.5483 34.9553 27.2033 23.275 28.1248C20.843 28.3148 19 30.3953 19 32.832V53.3995C19 74.1427 33.991 93.594 54.5205 99.4032C56.1308 99.8592 57.874 99.8592 59.4842 99.4032C80.009 93.5892 95 74.1475 95 53.4043V32.8368C95 30.3953 93.157 28.3148 90.725 28.1248Z" stroke="#262524" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h4 class="title general__euclid-m">Гарантия
-                            на все работы</h4>
-                        <p class="subtitle general__euclid-r">Мы уверены в том, что мы делаем, поэтому предоставляем гарантию на все виды работ.</p>
+                        <h4 class="title general__euclid-m">{{__('asd.Гарантия')}}
+                            {{__('asd.на все работы')}}</h4>
+                        <p class="subtitle general__euclid-r">{{__('asd.Мы уверены в том, что мы делаем, поэтому предоставляем гарантию на все виды работ.')}}</p>
                     </div>
                 </div>
             </div>
@@ -153,8 +153,8 @@
             <div class="general__container">
                 <div class="general__top">
                     <h2 class="general__title" data-aos="fade-right">
-                        <span class="line">Наша</span>
-                        <span class="pl">команда</span>
+                        <span class="line">{{__('asd.Наша')}}</span>
+                        <span class="pl">{{__('asd.команда')}}</span>
                     </h2>
                     <div class="team__buttons general__carousel-buttons" data-aos="fade-left">
                         <button class="team__prev general__carousel-btn">
@@ -180,8 +180,8 @@
                             <img class="pic__banner" src="{{$team->photo}}" alt="">
                         </div>
                         <div class="content">
-                            <a href="" class="title general__euclid-m">{{$team->name_ru}}</a>
-                            <p class="subtitle general__euclid-r">{{$team->position_ru}}</p>
+                            <a href="" class="title general__euclid-m">{{$team['name_'.$lang]}}</a>
+                            <p class="subtitle general__euclid-r">{{$team['position_'.$lang]}}</p>
                         </div>
                     </div>
                     @endforeach
@@ -192,22 +192,22 @@
         <section class="section__projects">
             <div class="general__container">
                 <h2 class="general__title" data-aos="fade-right">
-                    <span class="line">Наши</span>
-                    <span class="pl">проекты</span>
+                    <span class="line">{{__('asd.Наши')}}</span>
+                    <span class="pl">{{__('asd.Проекты')}}</span>
                 </h2>
                 <div class="projects">
                     @foreach ($projects as $project)
                         <div class="projects__box" data-aos="fade-up">
                             <img src="{{$project->photo}}" alt="">
                             <div class="content">
-                                <a href="" class="title general__euclid-m">{{$project->name_ru}}</a>
-                                <p class="subtitle general__euclid-r">{{$project->description_ru}}</p>
+                                <a href="" class="title general__euclid-m">{{$project['name_'.$lang]}}</a>
+                                <p class="subtitle general__euclid-r">{{$project['description_'.$lang]}}</p>
                             </div>
                         </div>
                     @endforeach
                 </div>
                 <a href="/projects" class="projects__link general__link" data-aos="fade-up">
-                    <span>Все проекты</span>
+                    <span>{{__('asd.Все проекты')}}</span>
                 </a>
             </div>
         </section>
@@ -217,8 +217,8 @@
             <div class="general__container">
                 <div class="general__top">
                     <h2 class="general__title" data-aos="fade-right">
-                        <span class="line">Новости</span>
-                        <span class="pl">компании</span>
+                        <span class="line">{{__('asd.Новости')}}</span>
+                        <span class="pl">{{__('asd.компании')}}</span>
                     </h2>
                     <div class="news__buttons general__carousel-buttons" data-aos="fade-left">
                         <button class="news__prev general__carousel-btn">
@@ -242,8 +242,8 @@
                         <img class="pic__banner" src="{{$new->photo}}" alt="">
                     </div>
                     <div class="content">
-                        <a href="{{route('blog.single',$new->id)}}" class="title general__euclid-r">{{$new->title_ru}}</a>
-                        <a href="{{route('blog.single',$new->id)}}" class="link general__euclid-r">Подробнее</a>
+                        <a href="{{route('blog.single',$new->id)}}" class="title general__euclid-r">{{$new['title_'.$lang]}}</a>
+                        <a href="{{route('blog.single',$new->id)}}" class="link general__euclid-r">{{__('asd.Подробнее')}}</a>
                     </div>
                 </div>
                 @endforeach

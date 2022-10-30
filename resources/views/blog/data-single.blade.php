@@ -9,10 +9,10 @@
         <section class="section__news-banner">
             <div class="general__container">
                 <div class="history">
-                    <span class="history__name general__euclid-l">Новости/</span>
-                    <span class="history__name general__euclid-r">{{$new->title_ru}}</span>
+                    <span class="history__name general__euclid-l">{{__('asd.Новости')}}/</span>
+                    <span class="history__name general__euclid-r">{{$new['title_'.$lang]}}</span>
                 </div>
-                <h1 class="title general__corbel-b">{{$new->title_ru}}</h1>
+                <h1 class="title general__corbel-b">{{$new['title_'.$lang]}}</h1>
             </div>
         </section>
 
@@ -24,7 +24,7 @@
                         <img src="{{$new->photo}}" alt="">
                     </div>
                     <div class="single__description">
-                        <p>{{$new->description_ru}}</p>
+                        <p>{{$new['description_'.$lang]}}</p>
                     </div>
                 </div>
             </div>
@@ -35,8 +35,8 @@
             <div class="general__container">
                 <div class="general__top">
                     <h2 class="general__title" data-aos="fade-right">
-                        <span class="line">Последние </span>
-                        <span class="pl">новости</span>
+                        <span class="line">{{__('asd.Последние')}} </span>
+                        <span class="pl">{{__('asd.Новости')}}</span>
                     </h2>
                     <div class="news__buttons general__carousel-buttons" data-aos="fade-left">
                         <button class="news__prev general__carousel-btn">
@@ -61,8 +61,8 @@
                         <img class="pic__banner" src="{{$new->photo}}" alt="">
                     </div>
                     <div class="content">
-                        <a href="{{route('blog.single',$new->id)}}" class="title general__euclid-r">Архитектор – это не просто профессия, а образ жизни.</a>
-                        <a href="{{route('blog.single',$new->id)}}" class="link general__euclid-r">Подробнее</a>
+                        <a href="{{route('blog.single',$new->id)}}" class="title general__euclid-r">{{$new['title_'.$lang]}}</a>
+                        <a href="{{route('blog.single',$new->id)}}" class="link general__euclid-r">{{__('asd.Подробнее')}}</a>
                     </div>
                 </div>
                 @endforeach

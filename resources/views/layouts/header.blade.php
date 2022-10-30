@@ -19,11 +19,11 @@
                         </svg>
                     </a>
                     <ul class="list">
-                        <li class="active"><a href="/about">О компании</a></li>
-                        <li><a href="/projects">Проекты</a></li>
-                        <li><a href="/career">Карьера</a></li>
-                        <li><a href="/blog">Новости</a></li>
-                        <li><a href="/contacts">Контакты</a></li>
+                        <li class="active"><a href="/about">{{__('asd.О компании')}}</a></li>
+                        <li><a href="/projects">{{__('asd.Проекты')}}</a></li>
+                        <li><a href="/career">{{__('asd.Карьера')}}</a></li>
+                        <li><a href="/blog">{{__('asd.Новости')}}</a></li>
+                        <li><a href="/contacts">{{__('asd.Контакты')}}</a></li>
                     </ul>
                 </nav>
                 <div class="header__right">
@@ -114,10 +114,10 @@
 {{--=========MENU=========--}}
 <div class="menu desc-off">
     <ul class="list">
-        <li class="active"><a href="/about">О компании</a></li>
-        <li><a href="/projects">Проекты</a></li>
-        <li><a href="/career">Карьера</a></li>
-        <li><a href="/blog">Новости</a></li>
-        <li><a href="/contacts">Контакты</a></li>
+        <li class="active"><a href="/about">{{__('asd.О компании')}}</a></li>
+        <li><a href="/projects">{{__('asd.Проекты')}}</a></li>
+        <li><a href="/career">{{__('asd.Карьера')}}</a></li>
+        <li><a href="/blog">{{__('asd.Новости')}}</a></li>
+        <li><a href="/contacts">{{__('asd.Контакты')}}</a></li>
     </ul>
 </div>

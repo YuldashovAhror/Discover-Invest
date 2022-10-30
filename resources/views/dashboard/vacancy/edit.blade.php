@@ -52,39 +52,39 @@
                         </div>
                             
                         <div class="col-4">
-                            <label for="inputAddress" class="form-label">responsihilities Uz</label>
+                            <label for="inputAddress" class="form-label">Обязанности Uz</label>
                             <textarea class="form-control" name="responsihilities_uz" id="inputAddress" placeholder="..." rows="3">{{$vacancy->responsihilities_uz}}</textarea>
                         </div>
                         <div class="col-4">
-                            <label for="inputAddress2" class="form-label">responsihilities Ru</label>
+                            <label for="inputAddress2" class="form-label">Обязанности Ru</label>
                             <textarea class="form-control" name="responsihilities_ru" id="inputAddress2" placeholder=" ..." rows="3">{{$vacancy->responsihilities_ru}}</textarea>
                         </div>
                         <div class="col-4">
-                            <label for="inputAddress2" class="form-label">responsihilities En</label>
+                            <label for="inputAddress2" class="form-label">Обязанности En</label>
                             <textarea class="form-control" name="responsihilities_en" id="inputAddress2" placeholder=" ..." rows="3">{{$vacancy->responsihilities_en}}</textarea>
                         </div>
                         <div class="col-4">
-                            <label for="inputAddress" class="form-label">requirements Uz</label>
+                            <label for="inputAddress" class="form-label">Требования Uz</label>
                             <textarea class="form-control" name="requirements_uz" id="inputAddress" placeholder="..." rows="3">{{$vacancy->requirements_uz}}</textarea>
                         </div>
                         <div class="col-4">
-                            <label for="inputAddress2" class="form-label">requirements Ru</label>
+                            <label for="inputAddress2" class="form-label">Требования Ru</label>
                             <textarea class="form-control" name="requirements_ru" id="inputAddress2" placeholder=" ..." rows="3">{{$vacancy->requirements_ru}}</textarea>
                         </div>
                         <div class="col-4">
-                            <label for="requirements_en" class="form-label">requirements En</label>
+                            <label for="requirements_en" class="form-label">Требования En</label>
                             <textarea class="form-control" name="requirements_en" id="requirements_en" placeholder=" ..." rows="3">{{$vacancy->requirements_en}}</textarea>
                         </div>
                         <div class="col-4">
-                            <label for="terms_uz" class="form-label">terms Uz</label>
+                            <label for="terms_uz" class="form-label">Условия Uz</label>
                             <textarea class="form-control" name="terms_uz" id="terms_uz" placeholder="..." rows="3">{{$vacancy->terms_uz}}</textarea>
                         </div>
                         <div class="col-4">
-                            <label for="terms_uz" class="form-label">terms Ru</label>
+                            <label for="terms_uz" class="form-label">Условия Ru</label>
                             <textarea class="form-control" name="terms_ru" id="terms_uz" placeholder=" ..." rows="3">{{$vacancy->terms_ru}}</textarea>
                         </div>
                         <div class="col-4">
-                            <label for="terms_en" class="form-label">terms En</label>
+                            <label for="terms_en" class="form-label">Условия En</label>
                             <textarea class="form-control" name="terms_en" id="terms_en" placeholder=" ..." rows="3">{{$vacancy->terms_en}}</textarea>
                         </div>
                         <div class="col-4">

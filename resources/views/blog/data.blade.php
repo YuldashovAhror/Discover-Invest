@@ -9,8 +9,8 @@
         <section class="section__banner">
             <div class="general__container">
                 <div class="banner">
-                    <h1 class="title general__corbel-b">Новости</h1>
-                    <p class="subtitle general__euclid-l">Наша компания была основана 15 сентября 2008 года. С первых дней работы мы стремимся к совершенству, которое является основой всего, что мы делаем. </p>
+                    <h1 class="title general__corbel-b">{{__('asd.Новости')}}</h1>
+                    <p class="subtitle general__euclid-l">{{__('asd.Наша компания была основана 15 сентября 2008 года. С первых дней работы мы стремимся к совершенству, которое является основой всего, что мы делаем.')}} </p>
                 </div>
             </div>
         </section>
@@ -25,8 +25,8 @@
                             <img class="pic__banner" src="{{$new->photo}}" alt="">
                         </div>
                         <div class="content">
-                            <a href="{{route('blog.single',$new->id)}}" class="title general__euclid-r">{{$new->title_ru}}</a>
-                            <a href="{{route('blog.single',$new->id)}}" class="link general__euclid-r">Подробнее</a>
+                            <a href="{{route('blog.single',$new->id)}}" class="title general__euclid-r">{{$new['title_'.$lang]}}</a>
+                            <a href="{{route('blog.single',$new->id)}}" class="link general__euclid-r">{{__('asd.Подробнее')}}</a>
                         </div>
                     </div>
                     @endforeach

@@ -20,21 +20,21 @@
     </span>
     {{--=========POPUP FEEDBACK=========--}}
     <div class="popup__container" style="display: ">
-        <h2 class="title general__corbel-b">мы вам позвоним</h2>
-        <p class="subtitle general__corbel-r">Оставьте свой номер, и мы перезвоним вам.</p>
+        <h2 class="title general__corbel-b">{{__('asd.мы вам позвоним')}}</h2>
+        <p class="subtitle general__corbel-r">{{__('asd.Оставьте свой номер, и мы перезвоним вам.')}}</p>
         <form action="{{route('dashboard.contact.store')}}" method="POST" class="popup__form" >
             @csrf
             <label for="popup__name" class="form__box">
-                <span class="general__euclid-l">Ваше имя</span>
+                <span class="general__euclid-l">{{__('asd.Ваше имя')}}</span>
                 <input type="text" name="name" id="popup__name" class="general__euclid-m">
             </label>
             <label for="popup__tel" class="form__box">
-                <span class="general__euclid-l">Номер телефона</span>
+                <span class="general__euclid-l">{{__('asd.Номер телефона')}}</span>
                 <input type="tel" name="phone" id="popup__tel" class="general__euclid-m">
             </label>
-            <button type="submit" class="form__btn general__euclid-sm">Отправить заявку</button>
+            <button type="submit" class="form__btn general__euclid-sm">{{__('asd.Отправить заявку')}}</button>
         </form>
-        <p class="text">Обращаем ваше внимание, что режим работы отдела продаж
+        <p class="text">{{__('asd.Обращаем ваше внимание, что режим работы отдела продаж')}}
             с 9:00 до 21:00</p>
     </div>
     {{--=========POPUP SUCCESS=========--}}
@@ -50,10 +50,10 @@
                 </clipPath>
             </defs>
         </svg>
-        <h3 class="title general__corbel-b">Ваша заявка успешно отправлена</h3>
-        <p class="subtitle">Наши менеджеры обязательно свяжутся с Вами
-            и ответят на все Ваши вопросы.</p>
-        <button class="popup__close general__corbel-b" type="button">Закрыть</button>
+        <h3 class="title general__corbel-b">{{__('asd.Ваша заявка успешно отправлена')}}</h3>
+        <p class="subtitle">{{__('asd.Наши менеджеры обязательно свяжутся с Вами
+            и ответят на все Ваши вопросы.')}}</p>
+        <button class="popup__close general__corbel-b" type="button">{{__('asd.Закрыть')}}</button>
     </div>
 </div>
 
