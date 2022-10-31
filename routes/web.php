@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\NewsController;
 use App\Http\Controllers\Dashboard\ProjectController;
 use App\Http\Controllers\Dashboard\ResumeController;
 use App\Http\Controllers\Dashboard\TeamController;
+use App\Http\Controllers\Dashboard\TimelineController;
 use App\Http\Controllers\Dashboard\VacansyController;
+use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\NewsController as FrontNewsController;
 use App\Http\Controllers\Front\ProjectController as FrontProjectController;
@@ -23,10 +26,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/login', [AuthController::class, 'index'])->name('login.index');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/register', [AuthController::class, 'index'])->name('register.index');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 //////// Home \\\\\\\\\
 Route::get('/', [HomeController::class, "index"])->name('welcome');
 
@@ -39,12 +44,12 @@ Route::get('/languages/{loc}', function ($loc) {
 
 /// Dashboard \\\\
 
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-});
+Route::middleware('auth')->group(function(){
+    Route::get('/dashboard', function(){
+        return view('dashboard.dashboard');
+    });
 
-// Route::get('/admin/words', [\App\Http\Controllers\Dashboard\WordsController::class, 'index']);
-Route::get('/admin/create', [\App\Http\Controllers\Dashboard\WordsController::class, 'create']);
+    Route::get('/admin/create', [\App\Http\Controllers\Dashboard\WordsController::class, 'create']);
 
 Route::get('/admin/project', [ProjectController::class, "index"])->name('dashboard.project');
 Route::get('/admin/project/create', [ProjectController::class, "create"])->name('dashboard.project.create');
@@ -94,6 +99,20 @@ Route::post('/admin/contact/store', [ContactController::class, 'store'])->name('
 Route::delete('/admin/contact/{id}', [ContactController::class, "destroy"])->name('dashboard.contact.destroy');
 
 
+///// Timeline \\\\
+
+Route::get('/admin/timeline', [TimelineController::class, "index"])->name('dashboard.timeline');
+Route::get('/admin/timeline/create', [TimelineController::class, "create"])->name('dashboard.timeline.create');
+Route::post('/admin/timeline/store', [TimelineController::class, 'store'])->name('dashboard.timeline.store');
+Route::get('/admin/timeline/edit/{id}', [TimelineController::class, 'edit'])->name('dashboard.timeline.edit');
+Route::put('/admin/timeline/{id}', [TimelineController::class, "update"])->name('dashboard.timeline.update');
+Route::delete('/admin/timeline/{id}', [TimelineController::class, 'destroy'])->name('dashboard.timeline.destroy');
+});
+
+// Route::get('/admin/words', [\App\Http\Controllers\Dashboard\WordsController::class, 'index']);
+
+
+
 //////// Front Route \\\\\\\\\\\\
 
 Route::get('/career', [VacancyController::class, "index"])->name('vacancy');
@@ -108,10 +127,13 @@ Route::get('/projects', [FrontProjectController::class, "index"])->name('project
 Route::get('/blog', [FrontNewsController::class, "index"])->name('blog');
 Route::get('/blog-single/{id}', [FrontNewsController::class, "show"])->name('blog.single');
 
+///// About \\\\\
+
+Route::get('/about', [AboutController::class,"index"])->name('about');
 
 // Route::view('projects', 'projects');
 // Route::view('career', 'vacancy');
-Route::view('about', 'about');
+// Route::view('about', 'about');
 Route::view('contacts', 'contact');
 
 // Route::view('blog', 'blog.data');

@@ -11,7 +11,7 @@
                         <thead class="table-light">
                         <tr>
                             <th style="width: 60px;">#</th>
-                            <th>Фото</th>
+                            <th>Файл</th>
                             <th>Вакансия</th>
                             <th>Название </th>
                             <th>Телефон</th>
@@ -26,7 +26,7 @@
                         
                             <tr>
                                 <td  style="width: 60px;">{{$num++}}</td>
-                                <td><a href="{{route('dashboard.resume.show', $resum->id)}}"><img src="{{$resum->file}}" alt="" style="width: 100px; height: 100px;"></a></td>
+                                <td><a href="{{ $resum->file }}"><button class="btn btn-primary">открыть</button></a></td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{ $resum->vacancy->name_ru }}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$resum->name}}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$resum->phone}}</td>

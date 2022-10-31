@@ -50,12 +50,25 @@
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-repeat"></i>
                 </div>
-                <div class="menu-title">Новости</div>
+                <div class="menu-title">График</div>
             </a>
             <ul>
                 <li> <a href="{{route('dashboard.news')}}"><i class="bx bx-right-arrow-alt"></i>Список</a>
                 </li>
                 <li> <a href="{{route('dashboard.news.create')}}"><i class="bx bx-right-arrow-alt"></i>Новости Создавать</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-repeat"></i>
+                </div>
+                <div class="menu-title">График</div>
+            </a>
+            <ul>
+                <li> <a href="{{route('dashboard.timeline')}}"><i class="bx bx-right-arrow-alt"></i>Список</a>
+                </li>
+                <li> <a href="{{route('dashboard.timeline.create')}}"><i class="bx bx-right-arrow-alt"></i>График Создавать</a>
                 </li>
             </ul>
         </li>

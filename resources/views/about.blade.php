@@ -122,78 +122,18 @@
         <section class="section__timeline">
             <div class="timeline">
                 <div class="timeline__carousel owl-carousel">
+                    @foreach ($timelines as $timeline)
+
                     <div class="timeline__item">
-                        <h4 class="item__btn">2004</h4>
+                        <h4 class="item__btn">{{$timeline->date}}</h4>
                         <span class="circle"></span>
                         <div class="box">
-                            <img class="timeline__item-bg" src="/img/icons/1.svg" alt="">
-                            <h4 class="timeline__item-title">Founded</h4>
-                            <div class="timeline__item-subtitle">Since the foundation of the Discover Invest Limited Liability Company (LLC) in 2008, the management of our company has attracted only the best and most promising specialists to work in the company – after all, only specialists are the key to the inexhaustible availability of advanced ideas and innovative approaches in business</div>
+                            <img class="timeline__item-bg" src="{{$timeline->photo}}" alt="">
+                            <h4 class="timeline__item-title">{{$timeline['name_'.$lang]}}</h4>
+                            <div class="timeline__item-subtitle">{!!$timeline['description_'.$lang]!!}</div>
                         </div>
                     </div>
-                    <div class="timeline__item">
-                        <h4 class="item__btn">2005</h4>
-                        <span class="circle"></span>
-                        <div class="box">
-                            <img class="timeline__item-bg" src="/img/icons/1.svg" alt="">
-                            <h4 class="timeline__item-title">Founded</h4>
-                            <div class="timeline__item-subtitle">Since the foundation of the Discover Invest Limited Liability Company (LLC) in 2008, the management of our company has attracted only the best and most promising specialists to work in the company – after all, only specialists are the key to the inexhaustible availability of advanced ideas and innovative approaches in business</div>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <h4 class="item__btn">2006</h4>
-                        <span class="circle"></span>
-                        <div class="box">
-                            <img class="timeline__item-bg" src="/img/icons/1.svg" alt="">
-                            <h4 class="timeline__item-title">Founded</h4>
-                            <div class="timeline__item-subtitle">Since the foundation of the Discover Invest Limited Liability Company (LLC) in 2008, the management of our company has attracted only the best and most promising specialists to work in the company – after all, only specialists are the key to the inexhaustible availability of advanced ideas and innovative approaches in business</div>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <h4 class="item__btn">2007</h4>
-                        <span class="circle"></span>
-                        <div class="box">
-                            <img class="timeline__item-bg" src="/img/icons/1.svg" alt="">
-                            <h4 class="timeline__item-title">Founded</h4>
-                            <div class="timeline__item-subtitle">Since the foundation of the Discover Invest Limited Liability Company (LLC) in 2008, the management of our company has attracted only the best and most promising specialists to work in the company – after all, only specialists are the key to the inexhaustible availability of advanced ideas and innovative approaches in business</div>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <h4 class="item__btn">2008</h4>
-                        <span class="circle"></span>
-                        <div class="box">
-                            <img class="timeline__item-bg" src="/img/icons/1.svg" alt="">
-                            <h4 class="timeline__item-title">Founded</h4>
-                            <div class="timeline__item-subtitle">Since the foundation of the Discover Invest Limited Liability Company (LLC) in 2008, the management of our company has attracted only the best and most promising specialists to work in the company – after all, only specialists are the key to the inexhaustible availability of advanced ideas and innovative approaches in business</div>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <h4 class="item__btn">2009</h4>
-                        <span class="circle"></span>
-                        <div class="box">
-                            <img class="timeline__item-bg" src="/img/icons/1.svg" alt="">
-                            <h4 class="timeline__item-title">Founded</h4>
-                            <div class="timeline__item-subtitle">Since the foundation of the Discover Invest Limited Liability Company (LLC) in 2008, the management of our company has attracted only the best and most promising specialists to work in the company – after all, only specialists are the key to the inexhaustible availability of advanced ideas and innovative approaches in business</div>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <h4 class="item__btn">2010</h4>
-                        <span class="circle"></span>
-                        <div class="box">
-                            <img class="timeline__item-bg" src="/img/icons/1.svg" alt="">
-                            <h4 class="timeline__item-title">Founded</h4>
-                            <div class="timeline__item-subtitle">Since the foundation of the Discover Invest Limited Liability Company (LLC) in 2008, the management of our company has attracted only the best and most promising specialists to work in the company – after all, only specialists are the key to the inexhaustible availability of advanced ideas and innovative approaches in business</div>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <h4 class="item__btn">2011</h4>
-                        <span class="circle"></span>
-                        <div class="box">
-                            <img class="timeline__item-bg" src="/img/icons/1.svg" alt="">
-                            <h4 class="timeline__item-title">Founded</h4>
-                            <div class="timeline__item-subtitle">Since the foundation of the Discover Invest Limited Liability Company (LLC) in 2008, the management of our company has attracted only the best and most promising specialists to work in the company – after all, only specialists are the key to the inexhaustible availability of advanced ideas and innovative approaches in business</div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <svg class="timeline__dashed" width="1920" height="2" viewBox="0 0 1920 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M-11 1L1931 1" stroke="#FAB448" stroke-width="2" stroke-linecap="round" stroke-dasharray="19 19"/>
