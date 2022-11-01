@@ -95,7 +95,7 @@ Route::delete('/admin/resume/{id}', [ResumeController::class, 'destroy'])->name(
 ///// Contacts \\\\\
 
 Route::get('/admin/contact', [ContactController::class, "index"])->name('dashboard.contact');
-Route::post('/admin/contact/store', [ContactController::class, 'store'])->name('dashboard.contact.store');
+
 Route::delete('/admin/contact/{id}', [ContactController::class, "destroy"])->name('dashboard.contact.destroy');
 
 
@@ -130,6 +130,8 @@ Route::get('/blog-single/{id}', [FrontNewsController::class, "show"])->name('blo
 ///// About \\\\\
 
 Route::get('/about', [AboutController::class,"index"])->name('about');
+
+Route::post('/admin/contact/store', [ContactController::class, 'store'])->name('dashboard.contact.store');
 
 // Route::view('projects', 'projects');
 // Route::view('career', 'vacancy');
