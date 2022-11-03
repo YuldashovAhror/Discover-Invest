@@ -39,9 +39,12 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $contacs = new Contact();
+        $contacs->department_id = $request->contacts;
         $contacs->name = $request->name;
         $contacs->phone = $request->phone;
+        $contacs->description = $request->description;
         $contacs->save();
 
         return redirect()->back();

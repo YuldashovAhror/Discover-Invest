@@ -31,12 +31,14 @@
             <label for="popup__tel" class="form__box">
                 <span class="general__euclid-l">{{__('asd.Номер телефона')}}</span>
                 <input type="tel" name="phone" id="popup__tel" class="general__euclid-m">
-            </label>
-            
+            </label>      
             <label for="popup__select" class="form__box">
                 <span class="general__euclid-l">{{__('asd.Отдел')}}</span>
-                <select name="" id="popup__select" class="general__euclid-m">
-                    <option value="">Отдел</option>
+                <select name="contacts" id="popup__select" class="general__euclid-m" required>
+                    <option>Отдел</option>
+                        @foreach (App\Models\Department::all() as $departmet)
+                            <option value="{{ $departmet->id }}">{{ $departmet['name_'.$lang]}}</option>
+                        @endforeach
                 </select>
             </label>
             <button type="submit" class="form__btn general__euclid-sm">{{__('asd.Отправить заявку')}}</button>

@@ -11,8 +11,10 @@
                         <thead class="table-light">
                         <tr>
                             <th style="width: 60px;">#</th>
+                            <th>Отдел </th>
                             <th>Название </th>
                             <th>Телефон</th>
+                            <th>Описание</th>
                             <th style="width: 130px;">Actions</th>
                         </tr>
                         </thead>
@@ -23,6 +25,7 @@
                         @foreach($contacts as $contact)
                             <tr>
                                 <td  style="width: 60px;">{{$num++}}</td>
+                                <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$contact->department_id}}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$contact->name}}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$contact->phone}}</td>
                                 <td class="px-6 py-2 text-sm" style="width: 130px;">

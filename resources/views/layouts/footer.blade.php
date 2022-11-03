@@ -65,7 +65,7 @@
                         <input type="tel" name="phone"
                             id="tel"
                             class="form__input general__euclid-r"
-                            placeholder="+998">
+                            placeholder="+998" required>
                     </div>
                 </label>
                 <label for="name" class="form__box">
@@ -74,7 +74,7 @@
                         <input type="text" name="name"
                             id="name"
                             class="form__input general__euclid-r"
-                            placeholder="Как вас зовут?">
+                            placeholder="Как вас зовут?" required>
                     </div>
                 </label>
                 <button class="form__btn general__euclid-b">

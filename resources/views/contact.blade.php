@@ -72,23 +72,27 @@
                         </address>
                     </div>
                     <div class="contacts__column contacts__column-right">
-                        <form action="" class="contacts__form">
+                        <form action="{{route('dashboard.contact.store')}}" method="POST" class="contacts__form">
+                            @csrf
                             <label for="name" class="form__box">
                                 <span class="form__name general__euclid-r">{{__('asd.Имя')}}</span>
-                                <input class="form__place general__euclid-r" id="name" type="text" placeholder="Как вас зовут?">
+                                <input class="form__place general__euclid-r" name="name" id="name" type="text" placeholder="Как вас зовут?" required>
                             </label>
                             <label for="tel" class="form__box">
                                 <span class="form__name general__euclid-r">{{__('asd.Номер телефона')}}</span>
                                 <div class="form__box-block">
                                     <img src="/img/icons/uzb-flag.png" alt="">
-                                    <input class="form__place general__euclid-r" id="tel" type="tel" placeholder="+998">
+                                    <input class="form__place general__euclid-r" name="phone" id="tel" type="tel" placeholder="+998" required>
                                 </div>
                             </label>
                             <label for="categories" class="form__box">
                                 <span class="form__name general__euclid-r">{{__('asd.Отдел')}}</span>
                                 <div class="form__box-block">
-                                    <select class="form__place general__euclid-r" name="categories" id="categories">
-                                        <option value="">{{__('asd.Выберите отдел')}}</option>
+                                    <select class="form__place general__euclid-r" name="contacts" id="categories" required>
+                                        <option>Отдел</option>
+                                            @foreach (App\Models\Department::all() as $departmet)
+                                                <option value="{{ $departmet->id }}">{{ $departmet['name_'.$lang]}}</option>
+                                            @endforeach
                                     </select>
                                     <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1 1.5L8 8.5L15 1.5" stroke="#FAB448" stroke-width="2"/>
@@ -97,7 +101,7 @@
                             </label>
                             <label for="message" class="form__box">
                                 <span class="form__name general__euclid-r">{{__('asd.Ваш вопрос')}}</span>
-                                <textarea class="form__place general__euclid-r" name="message" id="massage" placeholder="Оставьте свой вопрос ..."></textarea>
+                                <textarea class="form__place general__euclid-r" name="description" id="massage" placeholder="Оставьте свой вопрос ..."></textarea>
                             </label>
                             <div class="form__box">
                                 <button class="general__euclid-b form__btn" type="submit">{{__('asd.Обратная связь')}}</button>
