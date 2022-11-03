@@ -15,7 +15,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::with('department')->orderBy('id')->get();
         return view('dashboard.contact.index', [
             'contacts'=>$contacts
         ]);

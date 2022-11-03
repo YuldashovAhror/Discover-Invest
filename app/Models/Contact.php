@@ -9,7 +9,7 @@ class Contact extends Model
 {
     use HasFactory;
 
-    public function departments()
+    public function department()
     {
         return $this->belongsTo(Department::class, 'department_id');
     }
