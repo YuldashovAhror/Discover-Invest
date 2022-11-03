@@ -32,6 +32,13 @@
                 <span class="general__euclid-l">{{__('asd.Номер телефона')}}</span>
                 <input type="tel" name="phone" id="popup__tel" class="general__euclid-m">
             </label>
+            
+            <label for="popup__select" class="form__box">
+                <span class="general__euclid-l">{{__('asd.Отдел')}}</span>
+                <select name="" id="popup__select" class="general__euclid-m">
+                    <option value="">Отдел</option>
+                </select>
+            </label>
             <button type="submit" class="form__btn general__euclid-sm">{{__('asd.Отправить заявку')}}</button>
         </form>
         <p class="text">{{__('asd.Обращаем ваше внимание, что режим работы отдела продаж')}}

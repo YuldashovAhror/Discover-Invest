@@ -2320,6 +2320,14 @@ h1, h2, h3, h4, h5, h6, p {
       font-size: .7rem;
       padding: 1rem 1.2rem;
       padding-top: 1.8rem; }
+    .popup__form .form__box select {
+      display: block;
+      width: 100%;
+      border: none;
+      background-color: #F5F5F5;
+      font-size: .7rem;
+      padding: 1rem 1.2rem;
+      padding-top: 1.8rem; }
   .popup__form .form__btn {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2482,6 +2490,9 @@ h1, h2, h3, h4, h5, h6, p {
         top: 1.8rem;
         left: 2.4rem; }
       .popup__form .form__box input {
+        padding: 1.9rem 2.4rem;
+        padding-top: 3.7rem; }
+      .popup__form .form__box select {
         padding: 1.9rem 2.4rem;
         padding-top: 3.7rem; }
     .popup__form .form__btn {
