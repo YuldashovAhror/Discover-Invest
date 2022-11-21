@@ -21,7 +21,7 @@
 		{{-- Dashboard Shows--}}
 
 
-		@include('components.dashboardshow')
+		{{-- @include('components.dashboardshow') --}}
 
 		<!--end page wrapper -->
 		<!--start overlay-->

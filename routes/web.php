@@ -110,35 +110,17 @@ Route::delete('/admin/timeline/{id}', [TimelineController::class, 'destroy'])->n
 });
 
 // Route::get('/admin/words', [\App\Http\Controllers\Dashboard\WordsController::class, 'index']);
-
-
-
 //////// Front Route \\\\\\\\\\\\
-
 Route::get('/career', [VacancyController::class, "index"])->name('vacancy');
 Route::get('/career/{id}', [VacancyController::class, "show"])->name('vacancy.show');
-
 /////// Projects \\\\\\
-
 Route::get('/projects', [FrontProjectController::class, "index"])->name('project');
-
 /////// News \\\\\\
-
 Route::get('/blog', [FrontNewsController::class, "index"])->name('blog');
 Route::get('/blog-single/{id}', [FrontNewsController::class, "show"])->name('blog.single');
-
 ///// About \\\\\
-
 Route::get('/about', [AboutController::class,"index"])->name('about');
-
-Route::post('/admin/contact/store', [ContactController::class, 'store'])->name('dashboard.contact.store');
-
-// Route::view('projects', 'projects');
-// Route::view('career', 'vacancy');
-// Route::view('about', 'about');
+Route::get('/admin/contact/store', [ContactController::class, 'store'])->name('dashboard.contact.store');
 Route::view('contacts', 'contact');
-
-// Route::view('blog', 'blog.data');
-// Route::view('blog-single', 'blog.data-single');
 
 

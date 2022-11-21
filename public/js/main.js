@@ -57,6 +57,11 @@ $(window).on('load', function () {
         setTimeout(()=> {
             $('.popup__back').slideUp('200');
         }, 250)
+        setTimeout(()=> {
+            $('.popup__container').show()
+            $('.popup__success').hide()
+        }, 500)
+        
     })
 
 

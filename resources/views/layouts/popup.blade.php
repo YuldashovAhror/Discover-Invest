@@ -22,30 +22,32 @@
     <div class="popup__container" style="display: ">
         <h2 class="title general__corbel-b">{{__('asd.мы вам позвоним')}}</h2>
         <p class="subtitle general__corbel-r">{{__('asd.Оставьте свой номер, и мы перезвоним вам.')}}</p>
-        <form action="{{route('dashboard.contact.store')}}" method="POST" class="popup__form" >
+        <form action="#"  class="popup__form" >
             @csrf
             <label for="popup__name" class="form__box">
                 <span class="general__euclid-l">{{__('asd.Ваше имя')}}</span>
-                <input type="text" name="name" id="popup__name" class="general__euclid-m">
+                <input type="text" id="name" class="general__euclid-m">
             </label>
             <label for="popup__tel" class="form__box">
                 <span class="general__euclid-l">{{__('asd.Номер телефона')}}</span>
-                <input type="tel" name="phone" id="popup__tel" class="general__euclid-m">
+                <input type="tel" id="phone" class="general__euclid-m">
+                <input id="token" value="{{ csrf_token() }}" type="hidden">
             </label>      
-            <label for="popup__select" class="form__box">
+            <label for="contacts" class="form__box">
                 <span class="general__euclid-l">{{__('asd.Отдел')}}</span>
-                <select name="contacts" id="popup__select" class="general__euclid-m" required>
-                    <option>Отдел</option>
+                <select id="contacts" class="general__euclid-m" required>
+                    <option>{{__('asd.Отдел')}}</option>
                         @foreach (App\Models\Department::all() as $departmet)
                             <option value="{{ $departmet->id }}">{{ $departmet['name_'.$lang]}}</option>
                         @endforeach
                 </select>
             </label>
-            <button type="submit" class="form__btn general__euclid-sm">{{__('asd.Отправить заявку')}}</button>
+            <button type="button" id="button" onclick="send()" class="form__btn general__euclid-sm">{{__('asd.Отправить заявку')}}</button>
         </form>
         <p class="text">{{__('asd.Обращаем ваше внимание, что режим работы отдела продаж')}}
             с 9:00 до 21:00</p>
     </div>
+
     {{--=========POPUP SUCCESS=========--}}
     <div class="popup__success" style="display: none">
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,3 +68,36 @@
     </div>
 </div>
 
+<script>
+    function send() {
+        let token = $("#token").val();
+        let name = $('#name').val();
+        let phone = $('#phone').val();
+        let contacts = $('#contacts').val();
+        
+        $.ajax({
+            token: token,
+            type: "get",
+            url: "/admin/contact/store",
+            data: {
+                name: name,
+                phone: phone,
+                contacts: contacts,
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+        setTimeout(() => {
+            $('.popup__container').hide()
+            $('.popup__success').show()
+            $("#name").val('');
+            $("#phone").val('');
+            $("#contacts").val('');
+        }, 1000)
+        // setTimeout(() => {
+        //     $('.popup__container').hide()
+        //     $('.popup__success').hide()
+        //     $('.feedback').hide()
+        // }, 3000)
+    }
+</script>
