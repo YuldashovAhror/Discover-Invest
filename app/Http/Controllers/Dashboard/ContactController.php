@@ -39,7 +39,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $contacs = new Contact();
         $contacs->department_id = $request->contacts;
         $contacs->name = $request->name;
