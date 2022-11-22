@@ -91,6 +91,7 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
+        // dd($id);
         $contact = Contact::find($id);
         $contact->delete();
         return redirect()->back();

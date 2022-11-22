@@ -50,7 +50,7 @@
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-repeat"></i>
                 </div>
-                <div class="menu-title">График</div>
+                <div class="menu-title">Новости</div>
             </a>
             <ul>
                 <li> <a href="{{route('dashboard.news')}}"><i class="bx bx-right-arrow-alt"></i>Список</a>

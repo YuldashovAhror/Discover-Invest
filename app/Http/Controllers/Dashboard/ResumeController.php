@@ -103,7 +103,7 @@ class ResumeController extends Controller
      */
     public function destroy($id)
     {
-
+        // dd($id);
         $resume = Resume::find($id);
 
         $resume->delete();

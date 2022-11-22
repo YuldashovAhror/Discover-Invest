@@ -135,6 +135,7 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
+        // dd($id);
         $teams = Team::find($id);
         $teams->delete();
         if(is_file(public_path($teams->photo))){

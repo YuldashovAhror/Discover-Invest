@@ -18,7 +18,7 @@
                                 <div class="md-6">
                                     <input type="file" name="photo" class="form-control" aria-label="file example" required>
                                 </div>
-                                <div class="md-6">
+                                <div class="md-6 mt-2">
                                     <label for="date" class="form-label">Свидание</label>
                                     <input type="text" name="date" class="form-control" id="date" >
                                 </div>

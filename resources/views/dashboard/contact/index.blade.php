@@ -30,16 +30,27 @@
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$contact->phone}}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$contact->description}}</td>
                                 <td class="px-6 py-2 text-sm" style="width: 130px;">
-                                    {{-- <form action="{{ Route('admin.blog.edit', $contact->id) }}" style="display: inline;">
-                                        <button type="submit" class="btn btn-warning waves-effect waves-light"><i class="uil-edit"></i></button>
-                                    </form> --}}
-                                    <form action="{{ Route('dashboard.contact.destroy', $contact->id) }}" method="post" style="display: inline;">
-                                        @csrf
-                                        @method('delete')
-        
-                                        <button type="submit" class="btn btn-danger waves-effect waves-light"><i class="lni lni-trash"></i></button>
-                                    </form>
+                                    <div>
+                                        <button class="btn btn-danger " type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{$contact->id}}" data-bs-original-title="" title=""><i class="lni lni-trash"></i></i></button>
+                                    </div>
                                 </td>
+                                <div class="modal fade" id="exampleModalCenter{{$contact->id}}" tabindex="-1" aria-labelledby="exampleModalCenter" style="display: none;" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content" >
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" >Rostan ham o'chirmoqchimisiz</h5>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close" data-bs-original-title="" title=""></button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal" data-bs-original-title="" title="">Закрывать</button>
+                                            <form action="{{route('dashboard.contact.destroy', $contact->id)}}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn btn-danger" type="submit"  data-bs-original-title="" title="">Удалить</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </tr>
                         @endforeach
                         </tbody>
@@ -51,3 +62,10 @@
     
 
 @endsection
+
+{{-- <form action="{{ Route('dashboard.contact.destroy', $contact->id) }}" method="post" style="display: inline;">
+    @csrf
+    @method('delete')
+
+    <button type="submit" class="btn btn-danger waves-effect waves-light"><i class="lni lni-trash"></i></button>
+</form> --}}

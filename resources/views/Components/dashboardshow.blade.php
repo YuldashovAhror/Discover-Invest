@@ -1,4 +1,5 @@
-<div class="page-wrapper">
+
+{{-- <div class="page-wrapper">
     <div class="page-content">
         <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
             <div class="col">
@@ -13,7 +14,6 @@
                             <div class="widgets-icons ms-auto"><i class='bx bxs-wallet'></i>
                             </div>
                         </div>
-                        {{-- <div id="chart1"></div> --}}
                     </div>
                 </div>
             </div>
@@ -29,7 +29,6 @@
                             <div class="widgets-icons ms-auto"><i class='bx bxs-group'></i>
                             </div>
                         </div>
-                        {{-- <div id="chart2"></div> --}}
                     </div>
                 </div>
             </div>
@@ -45,10 +44,9 @@
                             <div class="widgets-icons ms-auto"><i class='bx bxs-binoculars'></i>
                             </div>
                         </div>
-                        {{-- <div id="chart3"></div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> --}}
