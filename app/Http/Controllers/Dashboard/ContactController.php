@@ -41,7 +41,7 @@ class ContactController extends Controller
     {
         // dd($request->all());
         $contacs = new Contact();
-        $contacs->department_id = $request->contacts;
+        $contacs->department_id = $request->contact;
         $contacs->name = $request->name;
         $contacs->phone = $request->phone;
         $contacs->description = $request->description;

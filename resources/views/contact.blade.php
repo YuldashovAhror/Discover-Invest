@@ -72,24 +72,25 @@
                         </address>
                     </div>
                     <div class="contacts__column contacts__column-right">
-                        <form action="{{route('dashboard.contact.store')}}" method="POST" class="contacts__form">
+                        <form action="#" class="contacts__form">
                             @csrf
                             <label for="name" class="form__box">
                                 <span class="form__name general__euclid-r">{{__('asd.Имя')}}</span>
-                                <input class="form__place general__euclid-r" name="name" id="name" type="text" placeholder="Как вас зовут?" required>
+                                <input class="form__place general__euclid-r" id="name" type="text" placeholder="Как вас зовут?" required>
                             </label>
                             <label for="tel" class="form__box">
                                 <span class="form__name general__euclid-r">{{__('asd.Номер телефона')}}</span>
                                 <div class="form__box-block">
                                     <img src="/img/icons/uzb-flag.png" alt="">
-                                    <input class="form__place general__euclid-r" name="phone" id="tel" type="tel" placeholder="+998" required>
+                                    <input class="form__place general__euclid-r" id="phone" type="tel" placeholder="+998" required>
+                                    {{-- <input id="token" value="{{ csrf_token() }}" type="hidden"> --}}
                                 </div>
                             </label>
                             <label for="categories" class="form__box">
                                 <span class="form__name general__euclid-r">{{__('asd.Отдел')}}</span>
                                 <div class="form__box-block">
-                                    <select class="form__place general__euclid-r" name="contacts" id="categories" required>
-                                        <option>Отдел</option>
+                                    <select class="form__place general__euclid-r" id="contact" required>
+                                        <option>{{__('asd.Отдел')}}</option>
                                             @foreach (App\Models\Department::all() as $departmet)
                                                 <option value="{{ $departmet->id }}">{{ $departmet['name_'.$lang]}}</option>
                                             @endforeach
@@ -101,10 +102,10 @@
                             </label>
                             <label for="message" class="form__box">
                                 <span class="form__name general__euclid-r">{{__('asd.Ваш вопрос')}}</span>
-                                <textarea class="form__place general__euclid-r" name="description" id="massage" placeholder="Оставьте свой вопрос ..."></textarea>
+                                <textarea class="form__place general__euclid-r" id="description" placeholder="Оставьте свой вопрос ..."></textarea>
                             </label>
                             <div class="form__box">
-                                <button class="general__euclid-b form__btn" type="submit">{{__('asd.Обратная связь')}}</button>
+                                <button class="general__euclid-b form__btn" type="button" id="button" onclick="send()">{{__('asd.Обратная связь')}}</button>
                             </div>
                         </form>
                     </div>
@@ -149,6 +150,42 @@
         $(window).on('load', function () {
             $('.section__main').addClass('page')
         });
+    </script>
+    <script>
+        function send() {
+            // let token = $("#token").val();
+            let name = $('#name').val();
+            let phone = $('#phone').val();
+            let contact = $('#contact').val();
+            let description = $('#description').val();
+            
+            $.ajax({
+                // token: token,
+                type: "get",
+                url: "/admin/contact/store",
+                data: {
+                    name: name,
+                    phone: phone,
+                    contact: contact,
+                    description: description,
+                },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+            });
+            setTimeout(() => {
+                // $('.contacts__column').hide()
+                $('.contacts__column').show()
+                $("#name").val('');
+                $("#phone").val('');
+                $("#contact").val('');
+                $("#description").val('');
+            }, 1000)
+            // setTimeout(() => {
+            //     $('.popup__container').hide()
+            //     $('.popup__success').hide()
+            //     $('.feedback').hide()
+            // }, 3000)
+        }
     </script>
 @endsection
 

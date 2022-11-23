@@ -1,4 +1,7 @@
 {{--=========POPUP BTN=========--}}
+@if (\Request::segment(1) != 'contacts')
+    
+
 <a href="#" class="popup__btn">
     <svg width="61" height="61" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1" y="1" width="59" height="59" stroke="#FAB448" stroke-width="2"/>
@@ -23,7 +26,6 @@
         <h2 class="title general__corbel-b">{{__('asd.мы вам позвоним')}}</h2>
         <p class="subtitle general__corbel-r">{{__('asd.Оставьте свой номер, и мы перезвоним вам.')}}</p>
         <form action="#"  class="popup__form" >
-            @csrf
             <label for="popup__name" class="form__box">
                 <span class="general__euclid-l">{{__('asd.Ваше имя')}}</span>
                 <input type="text" id="name" class="general__euclid-m">
@@ -35,7 +37,7 @@
             </label>      
             <label for="contacts" class="form__box">
                 <span class="general__euclid-l">{{__('asd.Отдел')}}</span>
-                <select id="contacts" class="general__euclid-m" required>
+                <select id="contact" class="general__euclid-m" required>
                     <option>{{__('asd.Отдел')}}</option>
                         @foreach (App\Models\Department::all() as $departmet)
                             <option value="{{ $departmet->id }}">{{ $departmet['name_'.$lang]}}</option>
@@ -67,13 +69,13 @@
         <button class="popup__close general__corbel-b" type="button">{{__('asd.Закрыть')}}</button>
     </div>
 </div>
-
+@endif
 <script>
     function send() {
         let token = $("#token").val();
         let name = $('#name').val();
         let phone = $('#phone').val();
-        let contacts = $('#contacts').val();
+        let contact = $('#contact').val();
         
         $.ajax({
             token: token,
@@ -82,7 +84,7 @@
             data: {
                 name: name,
                 phone: phone,
-                contacts: contacts,
+                contact: contact,
             },
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -92,7 +94,7 @@
             $('.popup__success').show()
             $("#name").val('');
             $("#phone").val('');
-            $("#contacts").val('');
+            $("#contact").val('');
         }, 1000)
         // setTimeout(() => {
         //     $('.popup__container').hide()
