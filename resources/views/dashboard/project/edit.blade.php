@@ -3,7 +3,7 @@
     
 <div>
     <div class="row">
-        <div class="col-xl-7 mx-auto">
+        <div class="">
             <h6 class="mb-0 text-uppercase">Project</h6>
             <hr/>
             {{-- @dd($project) --}}
@@ -19,7 +19,7 @@
                         </div>
                         <div class="mb-12">
                             <div class="mb-3 text-center">
-                                <img src="/{{$project->photo}}" alt="">
+                                <img src="{{$project->photo}}" alt="">
                             </div>
                             <div>
                                 <input type="file" class="form-control" name="photo">

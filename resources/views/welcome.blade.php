@@ -116,7 +116,7 @@
                                 <path d="M82.3603 90.25V82.6453C82.3603 73.4635 74.917 66.0203 65.7353 66.0203H48.26C39.0783 66.0203 31.635 73.4635 31.635 82.6453V90.25" stroke="#262524" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h4 class="title">{{__('asd.Команда')}}
+                        <h4 class="title">{{__('asd.tоманда')}}
                             {{__('asd.профессионалов')}}</h4>
                         <p class="subtitle">{{__('asd.Мы тщательно подбираем сотрудников с многолетним опытом работы.')}}</p>
                     </div>
@@ -217,7 +217,7 @@
             <div class="general__container">
                 <div class="general__top">
                     <h2 class="general__title" data-aos="fade-right">
-                        <span class="line">{{__('asd.Новости')}}</span>
+                        <span class="line">{{__('asd.Новостиc')}}</span>
                         <span class="pl">{{__('asd.компании')}}</span>
                     </h2>
                     <div class="news__buttons general__carousel-buttons" data-aos="fade-left">
@@ -249,7 +249,7 @@
                 @endforeach
             </div>
             <a href="/blog" class="news__link general__link" data-aos="fade-up">
-                <span>Все новости</span>
+                <span>{{__('asd.Все новости')}}</span>
             </a>
         </section>
     </div>

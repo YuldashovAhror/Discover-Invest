@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Timeline;
 use Illuminate\Http\Request;
 
-class TimelineController extends Controller
+class TimelineController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -46,10 +46,7 @@ class TimelineController extends Controller
         $timeline = new Timeline();
 
         if($request->file('photo')){
-            $file= $request->file('photo');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('/Image/timeline'), $filename);
-            $timeline['photo']= '/Image/timeline/'.$filename;
+            $timeline['photo'] = $this->photoSave($request->file('photo'), 'image/timeline');
         }
         $timeline->date = $request->date;
         $timeline->name_uz = $request->name_uz;
@@ -103,16 +100,10 @@ class TimelineController extends Controller
         $timeline = Timeline::find($id);
 
         if($request->file('photo')){
-            $this->validate($request, [
-                'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-            ]);
             if(is_file(public_path($timeline->photo))){
                 unlink(public_path($timeline->photo));
             }
-            $file= $request->file('photo');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('/Image/timeline'), $filename);
-            $timeline['photo']= '/Image/timeline/'.$filename;
+            $timeline['photo'] = $this->photoSave($request->file('photo'), 'image/timeline');
         }
         $timeline->date = $request->date;
         $timeline->name_uz = $request->name_uz;

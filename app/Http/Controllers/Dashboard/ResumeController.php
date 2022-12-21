@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Resume;
 use Illuminate\Http\Request;
 
-class ResumeController extends Controller
+class ResumeController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -45,11 +45,8 @@ class ResumeController extends Controller
         $resume->name = $request->name;
         $resume->phone = $request->phone;
     
-        if(!empty($request->file('file'))){
-            $file= $request->file('file');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('/Image/resume'), $filename);
-            $resume['file']= '/Image/resume/'.$filename;
+        if($request->file('file')){
+            $projects['file'] = $this->photoSave($request->file('file'), 'image/resume');
         }
 
 

@@ -74,7 +74,7 @@
                         <input type="text" name="name"
                             id="name"
                             class="form__input general__euclid-r"
-                            placeholder="Как вас зовут?" required>
+                            placeholder="{{__('asd.Как вас зовут')}}?" required>
                     </div>
                 </label>
                 <button class="form__btn general__euclid-b">

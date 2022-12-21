@@ -24,7 +24,7 @@
                         @foreach($projects as $project)
                             <tr>
                                 <td  >{{$num++}}</td>
-                                <td><img src="/{{$project->photo}}" alt="" style="width: 100px; height: 100px;"></td>
+                                <td><img src="{{$project->photo}}" alt="" style="width: 100px; height: 100px;"></td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$project->name_uz}}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$project->name_ru}}</td>
                                 <td class="px-6 py-2 text-sm whitespace-no-wrap"> {{$project->name_en}}</td>

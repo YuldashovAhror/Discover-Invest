@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Vacansy;
 use Illuminate\Http\Request;
 
-class VacansyController extends Controller
+class VacansyController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -46,10 +46,7 @@ class VacansyController extends Controller
         $vacancy = new Vacansy();
         
         if($request->file('photo')){
-            $file= $request->file('photo');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('Image/vacancy'), $filename);
-            $vacancy['photo']= '/Image/vacancy/'.$filename;
+            $vacancy['photo'] = $this->photoSave($request->file('photo'), 'image/vacancy');
         }
         $vacancy->name_uz = $request->name_uz;
         $vacancy->name_ru = $request->name_ru;
@@ -111,16 +108,10 @@ class VacansyController extends Controller
         $vacancy = Vacansy::find($id);
         
         if($request->file('photo')){
-            $this->validate($request, [
-                'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-            ]);
             if(is_file(public_path($vacancy->photo))){
                 unlink(public_path($vacancy->photo));
             }
-            $file= $request->file('photo');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('/Image/vacancy'), $filename);
-            $vacancy['photo']= '/Image/vacancy/'.$filename;
+            $vacancy['photo'] = $this->photoSave($request->file('photo'), 'image/vacancy');
         }
 
         $vacancy->name_uz = $request->name_uz;

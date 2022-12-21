@@ -22,27 +22,27 @@
                         <div class="row g-3">
                             <div class="col-md-4">
                                 <label for="name_uz" class="form-label">Название Uz</label>
-                                <input type="text" name="name_uz" class="form-control" id="name_uz">
+                                <input type="text" name="name_uz" class="form-control" id="name_uz" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="name_ru" class="form-label">Название Ru </label>
-                                <input type="text" name="name_ru" class="form-control" id="name_ru">
+                                <input type="text" name="name_ru" class="form-control" id="name_ru" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="name_en" class="form-label">Название En</label>
-                                <input type="text" name="name_en" class="form-control" id="name_en">
+                                <input type="text" name="name_en" class="form-control" id="name_en" required>
                             </div>
                             <div class="col-4">
                                 <label for="position_uz" class="form-label">Должность Uz</label>
-                                <textarea class="form-control" name="position_uz" id="position_uz" placeholder="..." rows="3"></textarea>
+                                <textarea class="form-control" name="position_uz" id="position_uz" placeholder="..." rows="3" required></textarea>
                             </div>
                             <div class="col-4">
                                 <label for="position_ru" class="form-label">Должность Ru</label>
-                                <textarea class="form-control" name="position_ru" id="inputAddress2" placeholder=" ..." rows="3"></textarea>
+                                <textarea class="form-control" name="position_ru" id="inputAddress2" placeholder=" ..." rows="3" required></textarea>
                             </div>
                             <div class="col-4">
                                 <label for="inputAddress2" class="form-label">Должность En</label>
-                                <textarea class="form-control" name="position_en" id="inputAddress2" placeholder=" ..." rows="3"></textarea>
+                                <textarea class="form-control" name="position_en" id="inputAddress2" placeholder=" ..." rows="3" required></textarea>
                             </div>
                             <div class="col-4">
                                 <button type="submit" class="btn btn-light px-5">Сохронит</button>

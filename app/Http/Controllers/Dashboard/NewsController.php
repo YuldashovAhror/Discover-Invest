@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\News;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class NewsController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -44,12 +44,8 @@ class NewsController extends Controller
         ]);
         
         $news = new News();
-
         if($request->file('photo')){
-            $file= $request->file('photo');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('/Image/news'), $filename);
-            $news['photo']= '/Image/news/'.$filename;
+            $news['photo'] = $this->photoSave($request->file('photo'), 'image/news');
         }
         $news->date = $request->date;
         $news->title_uz = $request->title_uz;
@@ -102,16 +98,10 @@ class NewsController extends Controller
         $news = News::find($id);
 
         if($request->file('photo')){
-            $this->validate($request, [
-                'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-            ]);
             if(is_file(public_path($news->photo))){
                 unlink(public_path($news->photo));
             }
-            $file= $request->file('photo');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('/Image/news'), $filename);
-            $news['photo']= '/Image/news/'.$filename;
+            $news['photo'] = $this->photoSave($request->file('photo'), 'image/news');
         }
 
         $news->date = $request->date;

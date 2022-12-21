@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
-class TeamController extends Controller
+class TeamController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -47,10 +47,7 @@ class TeamController extends Controller
         $teams = new Team();
 
         if($request->file('photo')){
-            $file= $request->file('photo');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('/Image/teams'), $filename);
-            $teams['photo']= '/Image/teams/'.$filename;
+            $teams['photo'] = $this->photoSave($request->file('photo'), 'image/teams');
         }
         $teams->name_uz = $request->name_uz;
         $teams->name_ru = $request->name_ru;
@@ -104,16 +101,10 @@ class TeamController extends Controller
         $teams = Team::find($id);
 
         if($request->file('photo')){
-            $this->validate($request, [
-                'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-            ]);
             if(is_file(public_path($teams->photo))){
                 unlink(public_path($teams->photo));
             }
-            $file= $request->file('photo');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('Image/teams'), $filename);
-            $teams['photo']= '/Image/teams/'.$filename;
+            $teams['photo'] = $this->photoSave($request->file('photo'), 'image/teams');
         }
         
         $teams->name_uz = $request->name_uz;
